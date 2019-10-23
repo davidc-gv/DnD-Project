@@ -17,31 +17,31 @@ public class Player {
                 name = "Sam";
                 maxHealth = rnd.nextInt(5+13);
                 health = maxHealth;
-                armorClass = rnd.nextInt(5+13);;
+                armorClass = rnd.nextInt(5+13);
                 initiative = rnd.nextInt(20 + 1) + 2;
                 this.id = id;
                 break;
             case 1:
                 name = "John";
-                maxHealth = rnd.nextInt(5+13);;
+                maxHealth = rnd.nextInt(5+13);
                 health = maxHealth;
-                armorClass = rnd.nextInt(5+13);;
+                armorClass = rnd.nextInt(5+13);
                 initiative = rnd.nextInt(20 + 1) + 2;
                 this.id = id;
                 break;
             case 2:
                 name = "Lisa";
-                maxHealth = rnd.nextInt(5+13);;
+                maxHealth = rnd.nextInt(5+13);
                 health = maxHealth;
-                armorClass = rnd.nextInt(5+13);;
+                armorClass = rnd.nextInt(5+13);
                 initiative = rnd.nextInt(20 + 1) + 2;
                 this.id = id;
                 break;
             case 3:
                 name = "Jesus";
-                maxHealth = rnd.nextInt(5+13);;
+                maxHealth = rnd.nextInt(5+13);
                 health = maxHealth;
-                armorClass = rnd.nextInt(5+13);;
+                armorClass = rnd.nextInt(5+13);
                 initiative = rnd.nextInt(20 + 1) + 2;
                 this.id = id;
                 break;
