@@ -8,9 +8,10 @@ public class Monster {
     int armorClass;
     int initiative;
     int xp;
+    int id;
     String name;
-    
-    public Monster() {
+
+    public Monster(int id) {
         Random rnd = new Randon();
         int monType = rnd.nextInt(4);
         switch (monType) {
@@ -22,6 +23,7 @@ public class Monster {
                 challengeRating = 1 / 8;
                 initiative = rnd.nextInt(20 + 1) + 2;
                 xp = 25;
+                this.id = id;
                 break;
             case 1:
                 name = "Bandit";
@@ -31,6 +33,7 @@ public class Monster {
                 challengeRating = 1 / 8;
                 initiative = rnd.nextInt(20 + 1) + 2;
                 xp = 25;
+                this.id = id;
                 break;
             case 2:
                 name = "Flying Snake";
@@ -40,6 +43,7 @@ public class Monster {
                 challengeRating = 1 / 8;
                 initiative = rnd.nextInt(20 + 1) + 4;
                 xp = 25;
+                this.id = id;
                 break;
             case 3:
                 name = "Dolphin";
@@ -49,6 +53,7 @@ public class Monster {
                 challengeRating = 1 / 8;
                 initiative = rnd.nextInt(20 + 1) + 1;
                 xp = 25;
+                this.id = id;
                 break;
         }
     }
@@ -76,7 +81,7 @@ public class Monster {
     public String getName() {
         return name;
     }
-    
+
     public void setHealth(int health) {
         this.health = health;
     }
