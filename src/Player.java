@@ -9,6 +9,11 @@ public class Player {
     int id;
     String name;
 
+    /**
+     * Constructor method for Player class.
+     * Parameter id is used in the encounter class to give each player and monster
+     * a unique identifying integer as a key to the initiative table.
+     */
     public Player(id) {
         Random rnd = new Random();
         int ranPlayer = rnd.nextInt(4);
@@ -48,22 +53,41 @@ public class Player {
         }
     }
 
+    /**
+     * accessor method for the player's current health
+     * @return the current health of the player.
+     */
     public int getHealth() {
         return health;
     }
 
+    /**
+     * accessor method for the player's armor class
+     * @return the armor class of the player.
+     */
     public int getArmorClass() {
         return armorClass;
     }
 
+    /**
+     * accessor method for the player's initiative
+     * @return the initiative of the player.
+     */
     public int getInitiative() {
         return initiative;
     }
 
+    /**
+     * accessor method for the player's name
+     * @return the name of the player.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * mutator method for the player's current health.
+     */
     public void setHealth(int health) {
         this.health = health;
     }
