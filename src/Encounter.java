@@ -40,7 +40,7 @@ public class Encounter {
             c++;
         }
 
-
+    sortInitiative();
 
     }
 
