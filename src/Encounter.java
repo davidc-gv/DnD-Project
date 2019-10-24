@@ -40,17 +40,15 @@ public class Encounter {
             c++;
         }
 
-    sortInitiative();
-
     }
 
 
     public void sortInitiative(){
 
-        for (int i = 0; i < initiative.length ; i++) {
+        for (int i = 0; i < initiative.length - 1; i++) {
             int index = i;
             for (int j = i + 1; j < initiative.length; j++)
-                if (initiative[j].getInitiative() > initiative[index].getInitiative())
+                if (initiative[j].getInitiative() < initiative[index].getInitiative())
                     index = j;
 
             Character temp = initiative[index];
@@ -58,6 +56,10 @@ public class Encounter {
             initiative[i] = temp;
         }
     }
+
+
+
+
 
 //    public  showEncounter(){
 
