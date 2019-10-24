@@ -45,6 +45,8 @@ public class EncGUI extends JDialog {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 initTracker.addTab("New Char", new JLabel("New Char"));
+                Dice_Roll r = new Dice_Roll();
+                Encounter e = new Encounter(r.rollD6(), r.rollD4());
             }
         });
     }

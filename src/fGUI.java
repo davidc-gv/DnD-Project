@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * @author Andrew Langley
  */
 
-public class FGUI {
+public class fGUI {
     private JButton generateEncounterButton;
     private JPanel Main;
     private JButton generateLootButton;
@@ -23,7 +23,7 @@ public class FGUI {
      */
     public static void main(String[] args) {
         JFrame frame = new JFrame("fGUI");
-        frame.setContentPane(new FGUI().Main);
+        frame.setContentPane(new fGUI().Main);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(800, 700));
         frame.pack();
@@ -34,7 +34,7 @@ public class FGUI {
     /**
      * Constructor for the GUI. Adds event listeners to all the buttons
      */
-    public FGUI() {
+    public fGUI() {
         /**
          * Opens the encounter generator GUI
          */
