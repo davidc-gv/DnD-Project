@@ -1,12 +1,22 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+
+/**
+ * Dialog that serves as the encounter tracker GUI. Allows the the cycling and adding to a tabbed pane that serves
+ * as the initiative tracker. Each tab represents a character and displays the appropriate stat block
+ *
+ * @author Andrew Langley
+ */
 
 public class EncGUI extends JDialog {
     private JPanel contentPane;
     private JButton addCharacterButton;
     private JTabbedPane initTracker;
-    private JButton buttonCancel;
 
+    /**
+     * Constructor for the encounter GUI. Adds event listeners tot he buttons and handles closing
+     */
     public EncGUI() {
         setContentPane(contentPane);
         setModal(true);
@@ -26,6 +36,10 @@ public class EncGUI extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+        /**
+         * Action listener for the add character button that adds a new tab to the initiative tracker
+         */
         addCharacterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -34,19 +48,23 @@ public class EncGUI extends JDialog {
         });
     }
 
-    private void onOK() {
-        // add your code here
-        dispose();
-    }
-
+    /**
+     * Closes the window
+     */
     private void onCancel() {
-        // add your code here if necessary
         dispose();
     }
 
+    /**
+     * Main method. Initializes the menu and makes it visible
+     * @param args
+     */
     public static void main(String[] args) {
         EncGUI dialog = new EncGUI();
+        dialog.setResizable(true);
+        dialog.setSize(new Dimension(700, 600));
         dialog.pack();
+        dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
         System.exit(0);
     }
