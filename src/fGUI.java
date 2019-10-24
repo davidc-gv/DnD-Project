@@ -65,5 +65,12 @@ public class FGUI {
                 lootMenu.setVisible(true);
             }
         });
+
+        /*testButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                TestPanel testPanel = new TestPanel();
+            }
+        });*/
     }
 }

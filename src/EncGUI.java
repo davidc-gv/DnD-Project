@@ -10,6 +10,7 @@ import java.awt.event.*;
  */
 
 public class EncGUI extends JDialog {
+    private JFrame frame;
     private JPanel contentPane;
     private JButton addCharacterButton;
     private JTabbedPane initTracker;
@@ -61,8 +62,7 @@ public class EncGUI extends JDialog {
      */
     public static void main(String[] args) {
         EncGUI dialog = new EncGUI();
-        dialog.setResizable(true);
-        dialog.setSize(new Dimension(700, 600));
+        dialog.setPreferredSize(new Dimension(700, 600));
         dialog.pack();
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
