@@ -7,7 +7,7 @@ public class Encounter {
 
     Player players[];
 
-    Object initiative [];
+    Character initiative [];
 
     /**
      *
@@ -17,11 +17,11 @@ public class Encounter {
     public Encounter(int numMon, int numP){
         //initialize the initiative
 
-        initiative = new Object[numMon + numP];
+        initiative = new Character[numMon + numP];
         int c = 0;
 
 
-        //inititalizes monsters
+        //initializes monsters
         monsters = new Monster[numMon];
         for(int i = 0; i < numMon; i++){
 
@@ -45,19 +45,19 @@ public class Encounter {
     }
 
 
-    private void sortInitiative(){
+    public void sortInitiative(){
 
+        for (int i = 0; i < initiative.length - 1; i++) {
+            int index = i;
+            for (int j = i + 1; j < initiative.length; j++)
+                if (initiative[j].getInitiative() < initiative[index].getInitiative())
+                    index = j;
 
-
-
-        for(int i = 0; i < initiative.length; i++){
-
-
-
+            Character temp = initiative[index];
+            initiative[index] = initiative[i];
+            initiative[i] = temp;
         }
-
     }
-
 
 
 

@@ -1,8 +1,13 @@
 import java.util.*;
 
+/**
+ * Class that handles dice rolls
+ *
+ * @author Samuel Petrarca
+ */
 
 public class Dice_Roll{
-    Random Roll = new Random();
+    private Random Roll = new Random();
 
     /**
      * Constructor method for the Dice_Roll Class
