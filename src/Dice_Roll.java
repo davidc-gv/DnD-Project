@@ -1,59 +1,79 @@
 import java.util.*;
 
-
 /**
- * A class that generates loot randomly.
+ * Class that handles dice rolls
+ *
+ * @author Samuel Petrarca
  */
-public class Loot {
-    String items;
-    String itemModifier;
-    private Random rand = new Random();
+
+public class Dice_Roll{
+    private Random Roll = new Random();
 
     /**
-     * A method for the class Loot
-     * Determines the type of item generated.
+     * Constructor method for the Dice_Roll Class
      */
-    public String itemType() {
-        //random number 1-5
-        int itemType = rand.nextInt(5)+1;
+    public Dice_Roll() {}
 
-
-        if(itemType == 1) {
-            items = "Armor";
-        }
-        else if(itemType == 2) {
-            items = "Sword";
-        }
-        else if(itemType == 3) {
-            items = "Bow";
-        }
-        else if(itemType == 4) {
-            items = "Spoon";
-        }
-        else if(itemType == 5) {
-            items = "Dagger";
-        }
-        return items;
+    /**
+     * Simulates rolling a d20 die
+     * @return random integer between 1-20
+     */
+    public int rollD20(){
+        int d20Roll = Roll.nextInt(20) +1;
+        return d20Roll;
     }
+
     /**
-     * A method for the class Loot
-     * Determines modifier the item has.
+     * Simulates rolling a d12 die
+     * @return random integer between 1-12
      */
-    public String itemModifier() {
-        //random number 1-100
-        int itemRange = rand.nextInt(100)+1;
+    public int rollD12(){
+        int d12Roll = Roll.nextInt(12) + 1;
+        return d12Roll;
+    }
 
-        //Make item modifier +something based on the random number itemRange
-        if(itemRange >= 1 && itemRange <= 60) {
-            itemModifier = "+1";
-        }
-        else if(itemRange >= 61 && itemRange <= 90) {
-            itemModifier = "+2";
-        }
-        else if(itemRange >= 91 && itemRange <= 100) {
-            itemModifier = "+3";
-        }
+    /**
+     * Simulates rolling a d10 percentile die
+     * @return random multiple of 10 between 10-100
+     */
+    public int rollD10P(){
+        int d10pRoll = Roll.nextInt(10) + 1;
+        return d10pRoll * 10;
+    }
 
-        return itemModifier;
+    /**
+     * Simulates rolling a standard d10 die
+     * @return random multiple of 10 between 10-100
+     */
+    public int rollD10(){
+        int d10pRoll = Roll.nextInt(10) + 1;
+        return d10pRoll;
+    }
+
+    /**
+     * Simulates rolling a d8 die
+     * @return random integer between 1-8
+     */
+    public int rollD8(){
+        int d8Roll = Roll.nextInt(8) + 1;
+        return d8Roll;
+    }
+
+    /**
+     * Simulates rolling a d6 die
+     * @return random integer between 1-6
+     */
+    public int rollD6(){
+        int d6Roll = Roll.nextInt(6) + 1;
+        return d6Roll;
+    }
+
+    /**
+     * Simulates rolling a d4 die
+     * @return random integer between 1-4
+     */
+    public int rollD4(){
+        int d4Roll = Roll.nextInt(4) + 1;
+        return d4Roll;
     }
 }
