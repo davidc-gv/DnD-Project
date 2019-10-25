@@ -76,12 +76,12 @@ public class RollMenu extends JDialog {
         });
         d10.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                rollResult.setText(""+dice_roll.rollD12());
+                rollResult.setText(""+dice_roll.rollD10());
             }
         });
         d12.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                rollResult.setText(""+dice_roll.rollD10P()); // TYPO ************************
+                rollResult.setText(""+dice_roll.rollD12()); // TYPO ************************
             }
         });
         d8.addActionListener(new ActionListener() {
