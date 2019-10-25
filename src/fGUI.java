@@ -25,8 +25,10 @@ public class fGUI {
         JFrame frame = new JFrame("fGUI");
         frame.setContentPane(new fGUI().Main);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Sets size for the main window
         frame.setPreferredSize(new Dimension(800, 700));
         frame.pack();
+        // Centers GUI on startup
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
@@ -42,6 +44,11 @@ public class fGUI {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 EncGUI encGUI = new EncGUI();
+                // Sets size to slightly smaller than main window
+                encGUI.setPreferredSize(new Dimension(700, 600));
+                encGUI.pack();
+                // Places window in center of screen
+                encGUI.setLocationRelativeTo(null);
                 encGUI.setVisible(true);
             }
         });
@@ -52,6 +59,11 @@ public class fGUI {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 RollMenu rollMenu = new RollMenu();
+                // Sets size to slightly smaller than main window
+                rollMenu.setPreferredSize(new Dimension(700, 600));
+                rollMenu.pack();
+                // Places window in center of screen
+                rollMenu.setLocationRelativeTo(null);
                 rollMenu.setVisible(true);
             }
         });
@@ -62,6 +74,11 @@ public class fGUI {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 LootMenu lootMenu = new LootMenu();
+                // Sets size to slightly smaller than main window
+                lootMenu.setPreferredSize(new Dimension(700, 600));
+                lootMenu.pack();
+                // Places window in center of screen
+                lootMenu.setLocationRelativeTo(null);
                 lootMenu.setVisible(true);
             }
         });
