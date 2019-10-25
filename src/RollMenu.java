@@ -1,8 +1,18 @@
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
 /**
- * Dialog that serves as the GUI for rolling dice. It is opened when called by the appropriate button on the main page.
+ * Dialog that serves as the GUI for rolling dice.
+ * It is opened when called by the appropriate button on the main page.
  * Allows for rolling of suggested and custom dice.
  *
  * @author Andrew Langley
@@ -30,14 +40,13 @@ public class RollMenu extends JDialog {
     getRootPane().setDefaultButton(rollButton);
 
 
-    /** Event listener for the roll button */
     rollButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         onRoll();
       }
     });
 
-    /** Event listener for the leave button */
+    /* Event listener for the leave button */
     leaveButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         onLeave();
@@ -57,7 +66,8 @@ public class RollMenu extends JDialog {
       public void actionPerformed(ActionEvent e) {
         onLeave();
       }
-    }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+    }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+        JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     ActionListener listener = new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent actionEvent) {
@@ -66,7 +76,7 @@ public class RollMenu extends JDialog {
     };
 
     // Creates instance of Dice_Roll
-    Dice_Roll dice_roll = new Dice_Roll();
+    DiceRoll dice_roll = new DiceRoll();
 
     // Rolls dice respective to button pressed
     d20.addActionListener(new ActionListener() {
@@ -102,8 +112,8 @@ public class RollMenu extends JDialog {
   }
 
   /**
-   * Does nothing at this point in time
-   * #Rolls selected dice and displays outcome using the dice roll class
+   * Does nothing at this point in time.
+   * #Rolls selected dice and displays outcome using the dice roll class.
    */
   private void onRoll() {
   }

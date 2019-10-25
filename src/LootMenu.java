@@ -1,5 +1,14 @@
-import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
 /**
  * Dialog that serves as the GUI for the loot generation system. Displays one generated
@@ -22,18 +31,15 @@ public class LootMenu extends JDialog {
     setModal(true);
     getRootPane().setDefaultButton(generateButton);
 
-    /**
-     * Event listener for the generate loot button
-     */
     generateButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         onGenerate();
       }
     });
 
-    /**
-     * Event listener for the leave button
-     */
+
+    //Event listener for the leave button
+
     leaveButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         onLeave();
@@ -53,11 +59,12 @@ public class LootMenu extends JDialog {
       public void actionPerformed(ActionEvent e) {
         onLeave();
       }
-    }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+    }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+        JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
   }
 
   /**
-   * Generates loot using the loot class and displays the results
+   * Generates loot using the loot class and displays the results.
    */
   private void onGenerate() {
     Loot loot = new Loot();
@@ -65,7 +72,7 @@ public class LootMenu extends JDialog {
   }
 
   /**
-   * Closes the window
+   * Closes the window.
    */
   private void onLeave() {
     dispose();

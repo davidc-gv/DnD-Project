@@ -1,7 +1,7 @@
-import java.util.*;
+import java.util.Random;
 
 /**
- * Class that initializes and organizes NPCs
+ * Class that initializes and organizes NPCs.
  *
  * @author Samuel Petrarca
  */
@@ -22,6 +22,16 @@ public class Monster extends Character {
     Random rnd = new Random();
     int monType = rnd.nextInt(4);
     switch (monType) {
+      default:
+        name = "Kobold";
+        maxHealth = 5;
+        health = maxHealth;
+        armorClass = 12;
+        challengeRating = 1 / 8;
+        initiative = rnd.nextInt(20 + 1) + 2;
+        xp = 25;
+        this.id = id;
+        break;
       case 0:
         name = "Kobold";
         maxHealth = 5;
@@ -66,7 +76,7 @@ public class Monster extends Character {
   }
 
   /**
-   * accessor method for the monster's challenge rating
+   * accessor method for the monster's challenge rating.
    *
    * @return the challenge rating of the monster.
    */
@@ -75,7 +85,7 @@ public class Monster extends Character {
   }
 
   /**
-   * accessor method for the monster's xp
+   * accessor method for the monster's xp.
    *
    * @return the xp of the monster.
    */

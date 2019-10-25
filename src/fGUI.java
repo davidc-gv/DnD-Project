@@ -1,11 +1,15 @@
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 
 /**
- * GUI for the main page. All functionality stems from this first page. Opens dialog for respective functions
- * on respective button presses
+ * GUI for the main page. All functionality stems from this first page.
+ * Opens dialog for respective function on respective button presses.
  *
  * @author Andrew Langley
  */
@@ -53,8 +57,8 @@ public class fGUI {
         encGUI.setVisible(true);
       }
     });
-    /**
-     * Opens the dice roll menu
+    /*
+      Opens the dice roll menu
      */
     rollDiceButton.addActionListener(new ActionListener() {
       @Override
@@ -68,7 +72,7 @@ public class fGUI {
         rollMenu.setVisible(true);
       }
     });
-    /**
+    /*
      * Opens the loot generation menu
      */
     generateLootButton.addActionListener(new ActionListener() {
@@ -84,11 +88,11 @@ public class fGUI {
       }
     });
 
-        /*testButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                TestPanel testPanel = new TestPanel();
-            }
-        });*/
+    /*testButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            TestPanel testPanel = new TestPanel();
+        }
+    });*/
   }
 }

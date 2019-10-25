@@ -1,10 +1,23 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.KeyStroke;
 
 /**
- * Dialog that serves as the encounter tracker GUI. Allows the the cycling and adding to a tabbed pane that serves
- * as the initiative tracker. Each tab represents a character and displays the appropriate stat block
+ * Dialog that serves as the encounter tracker GUI.
+ * Allows the the cycling and adding to a tabbed pane that serves
+ * as the initiative tracker. Each tab represents a character and
+ * displays the appropriate stat block.
  *
  * @author Andrew Langley
  */
@@ -38,18 +51,19 @@ public class EncGUI extends JDialog {
       public void actionPerformed(ActionEvent e) {
         onCancel();
       }
-    }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+    }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+        JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
 
 
-//      Action listener for the add character button that adds a new tab to the initiative tracker
+    //Action listener for the add character button that adds a new tab to the initiative tracker
 
     addCharacterButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent actionEvent) {
 
         //were going to use our already coded dice roller for our rng
-        Dice_Roll r = new Dice_Roll();
+        DiceRoll r = new DiceRoll();
         //we create a new encounter with d6 monsters and d4 players
         Encounter e = new Encounter(r.rollD6(), r.rollD4());
 
@@ -67,14 +81,14 @@ public class EncGUI extends JDialog {
   }
 
   /**
-   * Closes the window
+   * Closes the window.
    */
   private void onCancel() {
     dispose();
   }
 
   /**
-   * Main method. Initializes the menu and makes it visible
+   * Main method. Initializes the menu and makes it visible.
    *
    * @param args
    */
@@ -87,7 +101,7 @@ public class EncGUI extends JDialog {
 
 
     //were going to use our already coded dice roller for our rng
-    Dice_Roll r = new Dice_Roll();
+    DiceRoll r = new DiceRoll();
     //we create a new encounter with d6 monsters and d4 players
     Encounter e = new Encounter(r.rollD6(), r.rollD4());
 

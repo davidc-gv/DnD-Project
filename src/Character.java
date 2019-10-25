@@ -19,6 +19,14 @@ public class Character {
     Random rnd = new Random();
     int ranCharacter = rnd.nextInt(4);
     switch (ranCharacter) {
+      default:
+        name = "Sam";
+        maxHealth = rnd.nextInt(5 + 13);
+        health = maxHealth;
+        armorClass = rnd.nextInt(5 + 13);
+        initiative = rnd.nextInt(20 + 1) + 2;
+        this.id = id;
+        break;
       case 0:
         name = "Sam";
         maxHealth = rnd.nextInt(5 + 13);
@@ -55,14 +63,14 @@ public class Character {
   }
 
   /**
-   * To string method
+   * To string method.
    */
   public String toString() {
     return name;
   }
 
   /**
-   * accessor method for the Character's current health
+   * accessor method for the Character's current health.
    *
    * @return the current health of the Character.
    */
@@ -71,7 +79,7 @@ public class Character {
   }
 
   /**
-   * accessor method for the Character's armor class
+   * accessor method for the Character's armor class.
    *
    * @return the armor class of the Character.
    */
@@ -80,7 +88,7 @@ public class Character {
   }
 
   /**
-   * accessor method for the Character's initiative
+   * accessor method for the Character's initiative.
    *
    * @return the initiative of the Character.
    */
@@ -89,7 +97,7 @@ public class Character {
   }
 
   /**
-   * accessor method for the Character's name
+   * accessor method for the Character's name.
    *
    * @return the name of the Character.
    */

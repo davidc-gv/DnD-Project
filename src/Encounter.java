@@ -1,14 +1,15 @@
 public class Encounter {
 
 
-  Monster monsters[];
+  Monster[] monsters;
 
-  Player players[];
+  Player[] players;
 
-  Character initiative[];
+  Character[] initiative;
 
   /**
-   * This will build an encounter which will have an array of Monsters, Players, and an initiative tracker
+   * This will build an encounter which will have an array of Monsters,
+   * Players, and an initiative tracker.
    *
    * @param numMon will hold how many randomly generated monsters will be included
    * @param numP   will hold how many players in the encounter
@@ -51,16 +52,19 @@ public class Encounter {
 
 
   /**
-   * This method will sort initiative. It uses a sorting algorithm to arrange all the items in the initiative array
+   * This method will sort initiative. It uses a sorting algorithm to
+   * arrange all the items in the initiative array
    * in the correct order dependent on initiative
    */
   public void sortInitiative() {
 
     for (int i = 0; i < initiative.length - 1; i++) {
       int index = i;
-      for (int j = i + 1; j < initiative.length; j++)
-        if (initiative[j].getInitiative() < initiative[index].getInitiative())
+      for (int j = i + 1; j < initiative.length; j++) {
+        if (initiative[j].getInitiative() < initiative[index].getInitiative()) {
           index = j;
+        }
+      }
 
       Character temp = initiative[index];
       initiative[index] = initiative[i];

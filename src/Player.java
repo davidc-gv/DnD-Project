@@ -1,7 +1,5 @@
-import java.util.*;
-
 /**
- * Class that initializes and organizes Player Characters
+ * Class that initializes and organizes Player Characters.
  *
  * @author Samuel Petrarca
  */
