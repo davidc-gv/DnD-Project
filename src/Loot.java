@@ -7,7 +7,7 @@ public class Loot {
     
 	public String itemType() {
 			//random number 1-5
-		int itemType = rand.nextInt(5+1);
+		int itemType = rand.nextInt(5)+1;
 	
 	    
 	    	if(itemType == 1) {
@@ -30,7 +30,7 @@ public class Loot {
 	
 	public String itemModifier() {
 			//random number 1=100
-		int itemRange = rand.nextInt(100+1);
+		int itemRange = rand.nextInt(100)+1;
 		
 		//Make item modifier +something based on the random number itemRange
 		if(itemRange >= 1 && itemRange <= 60) {
