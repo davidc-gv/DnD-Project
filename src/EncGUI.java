@@ -59,7 +59,6 @@ public class EncGUI extends JDialog {
                     String info = "Name: " + e.initiative[i].getName() + "\n ";
                     info += "Health: " + e.initiative[i].getHealth() + "\n ";
                     info += "ArmorClass: " + e.initiative[i].getArmorClass() + "\n ";
-
                     initTracker.addTab(e.initiative[i].getName(), new JLabel(info));
                 }
 

@@ -2,7 +2,8 @@ import javax.swing.*;
 import java.awt.event.*;
 
 /**
- * Dialog that serves as the GUI for the loot generation system. Details to be expanded upon****
+ * Dialog that serves as the GUI for the loot generation system. Displays one generated
+ * item for right now. Details to be expanded upon****
  *
  * @author Andrew Langley
  */
@@ -11,6 +12,7 @@ public class LootMenu extends JDialog {
     private JPanel contentPane;
     private JButton generateButton;
     private JButton leaveButton;
+    private JLabel generatedLoot;
 
     /**
      * Constructor for the loot menu. Adds action listeners to the buttons and handles closing
@@ -58,8 +60,8 @@ public class LootMenu extends JDialog {
      * Generates loot using the loot class and displays the results
      */
     private void onGenerate() {
-
-        dispose();
+        Loot loot = new Loot();
+        generatedLoot.setText(loot.itemType() + " with " + loot.itemModifier());
     }
 
     /**
