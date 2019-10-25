@@ -12,6 +12,14 @@ public class RollMenu extends JDialog {
     private JPanel contentPane;
     private JButton rollButton;
     private JButton leaveButton;
+    private JLabel rollResult;
+    private JPanel radioHolder;
+    private JButton d20;
+    private JButton d10;
+    private JButton d12;
+    private JButton d8;
+    private JButton d6;
+    private JButton d4;
 
     /**
      * Constructor for the menu. Adds action listeners to the buttons and handles closing
@@ -20,6 +28,7 @@ public class RollMenu extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(rollButton);
+
 
         /** Event listener for the roll button */
         rollButton.addActionListener(new ActionListener() {
@@ -49,10 +58,52 @@ public class RollMenu extends JDialog {
                 onLeave();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        ActionListener listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        };
+
+        // Creates instance of Dice_Roll
+        Dice_Roll dice_roll = new Dice_Roll();
+
+        // Rolls dice respective to button pressed
+        d20.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                rollResult.setText(""+dice_roll.rollD20());
+            }
+        });
+        d10.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                rollResult.setText(""+dice_roll.rollD12());
+            }
+        });
+        d12.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                rollResult.setText(""+dice_roll.rollD10P()); // TYPO ************************
+            }
+        });
+        d8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                rollResult.setText(""+dice_roll.rollD8());
+            }
+        });
+        d6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                rollResult.setText(""+dice_roll.rollD6());
+            }
+        });
+        d4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                rollResult.setText(""+dice_roll.rollD4());
+            }
+        });
     }
 
     /**
-     * Rolls selected dice and displays outcome using the dice roll class
+     * Does nothing at this point in time
+     * #Rolls selected dice and displays outcome using the dice roll class
      */
     private void onRoll() {
     }
@@ -66,6 +117,7 @@ public class RollMenu extends JDialog {
 
     /**
      * Main method. Initializes the menu and makes it visible.
+     *
      * @param args
      */
     public static void main(String[] args) {
