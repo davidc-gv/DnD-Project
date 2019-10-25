@@ -11,97 +11,97 @@ import java.awt.event.*;
 
 
 public class EncGUI extends JDialog {
-    private JFrame frame;
-    private JPanel contentPane;
-    private JButton addCharacterButton;
-    private JTabbedPane initTracker;
-    private Encounter e;
+  private JFrame frame;
+  private JPanel contentPane;
+  private JButton addCharacterButton;
+  private JTabbedPane initTracker;
+  private Encounter e;
 
-    /**
-     * Constructor for the encounter GUI. Adds event listeners tot he buttons and handles closing
-     */
-    public EncGUI() {
-        setContentPane(contentPane);
-        setModal(true);
-        getRootPane().setDefaultButton(addCharacterButton);
+  /**
+   * Constructor for the encounter GUI. Adds event listeners tot he buttons and handles closing
+   */
+  public EncGUI() {
+    setContentPane(contentPane);
+    setModal(true);
+    getRootPane().setDefaultButton(addCharacterButton);
 
-        // call onCancel() when cross is clicked
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onCancel();
-            }
-        });
+    // call onCancel() when cross is clicked
+    setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+    addWindowListener(new WindowAdapter() {
+      public void windowClosing(WindowEvent e) {
+        onCancel();
+      }
+    });
 
-        // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+    // call onCancel() on ESCAPE
+    contentPane.registerKeyboardAction(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        onCancel();
+      }
+    }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
 
 
-        /**
-         * Action listener for the add character button that adds a new tab to the initiative tracker
-         */
-        addCharacterButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
+//      Action listener for the add character button that adds a new tab to the initiative tracker
 
-                //were going to use our already coded dice roller for our rng
-                Dice_Roll r = new Dice_Roll();
-                //we create a new encounter with d6 monsters and d4 players
-                Encounter e = new Encounter(r.rollD6(), r.rollD4());
-
-                for(int i = 0; i < e.initiative.length; i++){
-
-                    String info = "Name: " + e.initiative[i].getName() + "\n ";
-                    info += "Health: " + e.initiative[i].getHealth() + "\n ";
-                    info += "ArmorClass: " + e.initiative[i].getArmorClass() + "\n ";
-                    initTracker.addTab(e.initiative[i].getName(), new JLabel(info));
-                }
-
-                //initTracker.addTab("New Char", new JLabel("New Character"));
-            }
-        });
-    }
-
-    /**
-     * Closes the window
-     */
-    private void onCancel() {
-        dispose();
-    }
-
-    /**
-     * Main method. Initializes the menu and makes it visible
-     * @param args
-     */
-    public static void main(String[] args) {
-        EncGUI dialog = new EncGUI();
-        dialog.setPreferredSize(new Dimension(700, 600));
-        dialog.pack();
-        dialog.setLocationRelativeTo(null);
-        dialog.setVisible(true);
-
+    addCharacterButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent actionEvent) {
 
         //were going to use our already coded dice roller for our rng
         Dice_Roll r = new Dice_Roll();
         //we create a new encounter with d6 monsters and d4 players
         Encounter e = new Encounter(r.rollD6(), r.rollD4());
 
-        //we then add all of these monsters and players into the jTabbedPane
-        for(int i = 0; i < e.initiative.length; i++){
+        for (int i = 0; i < e.initiative.length; i++) {
 
-            String info = "Name: " + e.initiative[i].getName() + "\n";
-            info += "Health: " + e.initiative[i].getHealth() + "\n";
-            info += "ArmorClass: " + e.initiative[i].getArmorClass() + "\n";
-
-            dialog.initTracker.addTab(e.initiative[i].getName(), new JLabel(info));
+          String info = "Name: " + e.initiative[i].getName() + "\n ";
+          info += "Health: " + e.initiative[i].getHealth() + "\n ";
+          info += "ArmorClass: " + e.initiative[i].getArmorClass() + "\n ";
+          initTracker.addTab(e.initiative[i].getName(), new JLabel(info));
         }
 
+        //initTracker.addTab("New Char", new JLabel("New Character"));
+      }
+    });
+  }
 
-        System.exit(0);
+  /**
+   * Closes the window
+   */
+  private void onCancel() {
+    dispose();
+  }
+
+  /**
+   * Main method. Initializes the menu and makes it visible
+   *
+   * @param args
+   */
+  public static void main(String[] args) {
+    EncGUI dialog = new EncGUI();
+    dialog.setPreferredSize(new Dimension(700, 600));
+    dialog.pack();
+    dialog.setLocationRelativeTo(null);
+    dialog.setVisible(true);
+
+
+    //were going to use our already coded dice roller for our rng
+    Dice_Roll r = new Dice_Roll();
+    //we create a new encounter with d6 monsters and d4 players
+    Encounter e = new Encounter(r.rollD6(), r.rollD4());
+
+    //we then add all of these monsters and players into the jTabbedPane
+    for (int i = 0; i < e.initiative.length; i++) {
+
+      String info = "Name: " + e.initiative[i].getName() + "\n";
+      info += "Health: " + e.initiative[i].getHealth() + "\n";
+      info += "ArmorClass: " + e.initiative[i].getArmorClass() + "\n";
+
+      dialog.initTracker.addTab(e.initiative[i].getName(), new JLabel(info));
     }
+
+
+    System.exit(0);
+  }
 }
