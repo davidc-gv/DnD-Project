@@ -3,12 +3,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.KeyStroke;
+import java.util.Scanner;
+import javax.swing.*;
 
 /**
  * Dialog that serves as the GUI for rolling dice.
@@ -25,11 +21,13 @@ public class RollMenu extends JDialog {
   private JLabel rollResult;
   private JPanel radioHolder;
   private JButton d20;
-  private JButton d10;
+  private JTextField diceCount;
+  private JTextField dieType;
+  /*private JButton d10;
   private JButton d12;
   private JButton d8;
   private JButton d6;
-  private JButton d4;
+  private JButton d4;*/
 
   /**
    * Constructor for the menu. Adds action listeners to the buttons and handles closing
@@ -39,7 +37,7 @@ public class RollMenu extends JDialog {
     setModal(true);
     getRootPane().setDefaultButton(rollButton);
 
-
+    // Uses custom parameters to roll
     rollButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         onRoll();
@@ -84,7 +82,7 @@ public class RollMenu extends JDialog {
         rollResult.setText("" + dice_roll.rollD20());
       }
     });
-    d10.addActionListener(new ActionListener() {
+   /* d10.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         rollResult.setText("" + dice_roll.rollD10());
       }
@@ -108,14 +106,38 @@ public class RollMenu extends JDialog {
       public void actionPerformed(ActionEvent e) {
         rollResult.setText("" + dice_roll.rollD4());
       }
-    });
+    });*/
   }
 
   /**
-   * Does nothing at this point in time.
-   * #Rolls selected dice and displays outcome using the dice roll class.
+   * Takes user data from diceCount and dieType to call the customRoll method of a DiceRoll object and
+   * puts the resulting value in rollResult. Errors are displayed in rollResult
    */
   private void onRoll() {
+    // Values passed by user using diceCount and dieType
+    int dCount, dType;
+    // Creates new DiceRoll object
+    DiceRoll dice_roll = new DiceRoll();
+    // Attempts to fetch integer values from diceCount and dieType
+    try {
+      dCount = Integer.parseInt(diceCount.getText());
+      dType = Integer.parseInt(dieType.getText());
+    }
+    // Displays error in rollResult and returns if non-integers are used
+    catch(Exception e){
+      rollResult.setText("Please only use integers greater than 1");
+      return;
+    }
+    // Gets the sum of rolls as desired
+    int resultingSum = dice_roll.customRoll(dCount,dType);
+    // Checks if the roll returns an error (-1 is passed) and displays it in rollResult
+    if(resultingSum == -1){
+      rollResult.setText("Please only use integers greater than 1");
+    }
+    // Shows the resulting value in rollResult
+    else {
+      rollResult.setText("" + resultingSum);
+    }
   }
 
   /**
