@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbcfbc5e-8182-4553-a78e-ebe6a81f540b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Encounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Encounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +89,7 @@
       <workItem from="1574272339509" duration="893000" />
       <workItem from="1574301456137" duration="713000" />
       <workItem from="1574441014289" duration="1527000" />
-      <workItem from="1575308470960" duration="7384000" />
+      <workItem from="1575308470960" duration="9332000" />
     </task>
     <task id="LOCAL-00001" summary="Original commit">
       <created>1571854789416</created>
@@ -151,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572025670927</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Adding overhaul for Encounter, Monster, Character, and Player.&#10;&#10;Fundamentally changes many aspects of each.&#10;&#10;Players, Characters, and Monsters all have the same parameters&#10;&#10;This makes it so it can easily be accessed in the GUI">
+      <created>1575334890189</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1575334890189</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +180,8 @@
     <MESSAGE value="Updating GUI to create encounter" />
     <MESSAGE value="Bug fixes for dice rolling and GUI&#10;Commenting for Encounter" />
     <MESSAGE value="Small bug fix for loot not generating from 1 to n" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small bug fix for loot not generating from 1 to n" />
+    <MESSAGE value="Adding overhaul for Encounter, Monster, Character, and Player.&#10;&#10;Fundamentally changes many aspects of each.&#10;&#10;Players, Characters, and Monsters all have the same parameters&#10;&#10;This makes it so it can easily be accessed in the GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding overhaul for Encounter, Monster, Character, and Player.&#10;&#10;Fundamentally changes many aspects of each.&#10;&#10;Players, Characters, and Monsters all have the same parameters&#10;&#10;This makes it so it can easily be accessed in the GUI" />
   </component>
   <component name="masterDetails">
     <states>

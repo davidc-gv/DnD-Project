@@ -26,6 +26,8 @@ public class Encounter {
     //a tracker for the current place in the initiative array
     int c = 0;
 
+    initiative = new ArrayList<>();
+
 
     //initializes monsters
     monsters = new Monster[numMon];
@@ -58,15 +60,31 @@ public class Encounter {
   }
 
 
-  public Encounter(String [] playerNames){
+  /**
+   * This is a different constructor that takes in the player names and initiatives
+   *
+   * This will add players to the initiative tracker with their corresponding initiative values
+   *
+   * The constructor will then sort the initiatives accordingly
+   *
+   * @param playerNames a list of player names
+   * @param init a list of initiatives
+   */
+  public Encounter(String [] playerNames, int [] init){
+
+    initiative = new ArrayList<>();
 
     players = new Player[playerNames.length];
 
     for(int i = 0; i < playerNames.length; i++){
-      players[i] = new Player(playerNames[i]);
+      Player p = new Player(playerNames[i]);
+      p.initiative = init[i];
+
+      initiative.add(p);
+
     }
 
-
+    sortInitiative();
 
   }
 
@@ -76,6 +94,12 @@ public class Encounter {
    * This method will sort initiative. It uses a sorting algorithm to
    * arrange all the items in the initiative array
    * in the correct order dependent on initiative
+   *
+   * Since we changed initiative from a list to an arraylist we will convert in order to use the
+   * same logic.
+   *
+   * First we convert to a list and perform our logic, we then convert back to an arraylist
+   *
    */
   private void sortInitiative() {
 
@@ -101,12 +125,24 @@ public class Encounter {
 
     ArrayList<Character> x = new ArrayList<Character>();
 
+    //this adds all of the elements of init to x
     Collections.addAll(x, init);
 
+    //we then set initiative equal to x
     initiative = x;
 
   }
 
+
+  /**
+   * This method will iterate and change the head of the initiative to the next person in line.
+   *
+   * This gets messy but we convert from an arraylist to a list, and then back to an arraylist
+   *
+   * We sort the list and then convert back. This makes it so our previous logic still holds.
+   *
+   *
+   */
   public void nextTurn(){
 
     Character [] init = new Character[initiative.size()];
@@ -138,6 +174,13 @@ public class Encounter {
   }
 
 
+  /**
+   * The program will remove a player/monster from the initiative by taking in an index
+   * There is no need resort since it will still be in order
+   *
+   * @param index This program will take in the index of the character we want to remove
+   * @return The method will return the chracter removed in case we want to use it at a later point
+   */
   public Character removeChar(int index){
 
     Character temp = initiative.get(index);
@@ -148,9 +191,17 @@ public class Encounter {
   }
 
 
-  public void addMonster(int x){
+  /**
+   * The method will take in a integer that will represent the monster the user wishes to add
+   * We will then add that monster into the initiative.
+   *
+   * Finally we will sort initiative
+   *
+   * @param ind is the index of the monster in the constructor for monsters
+   */
+  public void addMonster(int ind){
 
-    Monster mon = new Monster(x);
+    Monster mon = new Monster(ind);
     initiative.add(mon);
 
     sortInitiative();
