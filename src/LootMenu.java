@@ -3,12 +3,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.KeyStroke;
+import javax.swing.*;
 
 /**
  * Dialog that serves as the GUI for the loot generation system. Displays one generated
@@ -22,6 +17,7 @@ public class LootMenu extends JDialog {
   private JButton generateButton;
   private JButton leaveButton;
   private JLabel generatedLoot;
+  private JTextField challengeRating;
 
   /**
    * Constructor for the loot menu. Adds action listeners to the buttons and handles closing
