@@ -8,9 +8,6 @@ import java.util.Random;
 
 public class Monster extends Character {
 
-  //declare instance variables
-  private double challengeRating;
-  private int xp;
 
   /**
    * Constructor method for Monster class.
@@ -20,8 +17,8 @@ public class Monster extends Character {
   public Monster(int id) {
     super(id);
     Random rnd = new Random();
-    int monType = rnd.nextInt(4);
-    switch (monType) {
+    //int monType = rnd.nextInt(4);
+    switch (id) {
       default:
         name = "Kobold";
         maxHealth = 5;
