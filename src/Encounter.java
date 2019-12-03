@@ -70,12 +70,13 @@ public class Encounter {
    * @param playerNames a list of player names
    * @param init a list of initiatives
    */
-  public Encounter(String [] playerNames, int [] init){
+  public Encounter(String [] playerNames, int [] init, int [] monsterID, int [] monsterCR){
 
     initiative = new ArrayList<>();
 
     players = new Player[playerNames.length];
 
+    //adding the players
     for(int i = 0; i < playerNames.length; i++){
       Player p = new Player(playerNames[i]);
       p.initiative = init[i];
@@ -84,6 +85,20 @@ public class Encounter {
 
     }
 
+    //adding the monsters based on ID
+    for (int value : monsterID) {
+      //call helper method
+      addMonster(value);
+    }
+
+    //adding the monsters based on CR
+    for(int value : monsterCR){
+      //call helper method
+      addMonsterCR(monsterCR[value]);
+    }
+
+
+    //finally we sort the initiative
     sortInitiative();
 
   }
@@ -195,7 +210,7 @@ public class Encounter {
    * The method will take in a integer that will represent the monster the user wishes to add
    * We will then add that monster into the initiative.
    *
-   * Finally we will sort initiative
+   * We do not need to sort initiative
    *
    * @param ind is the index of the monster in the constructor for monsters
    */
@@ -203,8 +218,6 @@ public class Encounter {
 
     Monster mon = new Monster(ind);
     initiative.add(mon);
-
-    sortInitiative();
 
   }
 
@@ -232,7 +245,6 @@ public class Encounter {
     }
 
     initiative.add(mon);
-    sortInitiative();
 
 
   }

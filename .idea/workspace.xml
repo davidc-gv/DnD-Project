@@ -89,7 +89,7 @@
       <workItem from="1574272339509" duration="893000" />
       <workItem from="1574301456137" duration="713000" />
       <workItem from="1574441014289" duration="1527000" />
-      <workItem from="1575308470960" duration="9332000" />
+      <workItem from="1575308470960" duration="10157000" />
     </task>
     <task id="LOCAL-00001" summary="Original commit">
       <created>1571854789416</created>
@@ -154,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575334890189</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed constructor to include an int list&#10;&#10;Also commented for better understanding of what I have done">
+      <created>1575336814072</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1575336814072</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +188,8 @@
     <MESSAGE value="Bug fixes for dice rolling and GUI&#10;Commenting for Encounter" />
     <MESSAGE value="Small bug fix for loot not generating from 1 to n" />
     <MESSAGE value="Adding overhaul for Encounter, Monster, Character, and Player.&#10;&#10;Fundamentally changes many aspects of each.&#10;&#10;Players, Characters, and Monsters all have the same parameters&#10;&#10;This makes it so it can easily be accessed in the GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding overhaul for Encounter, Monster, Character, and Player.&#10;&#10;Fundamentally changes many aspects of each.&#10;&#10;Players, Characters, and Monsters all have the same parameters&#10;&#10;This makes it so it can easily be accessed in the GUI" />
+    <MESSAGE value="Fixed constructor to include an int list&#10;&#10;Also commented for better understanding of what I have done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed constructor to include an int list&#10;&#10;Also commented for better understanding of what I have done" />
   </component>
   <component name="masterDetails">
     <states>
