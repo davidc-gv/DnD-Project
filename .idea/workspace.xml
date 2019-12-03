@@ -89,7 +89,7 @@
       <workItem from="1574272339509" duration="893000" />
       <workItem from="1574301456137" duration="713000" />
       <workItem from="1574441014289" duration="1527000" />
-      <workItem from="1575308470960" duration="10157000" />
+      <workItem from="1575308470960" duration="10828000" />
     </task>
     <task id="LOCAL-00001" summary="Original commit">
       <created>1571854789416</created>
@@ -161,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575336814072</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Modified constructor to take in 4 parameters now&#10;&#10;This will allow for initialization of initiative to be simpler">
+      <created>1575337662491</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1575337662491</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +196,8 @@
     <MESSAGE value="Small bug fix for loot not generating from 1 to n" />
     <MESSAGE value="Adding overhaul for Encounter, Monster, Character, and Player.&#10;&#10;Fundamentally changes many aspects of each.&#10;&#10;Players, Characters, and Monsters all have the same parameters&#10;&#10;This makes it so it can easily be accessed in the GUI" />
     <MESSAGE value="Fixed constructor to include an int list&#10;&#10;Also commented for better understanding of what I have done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed constructor to include an int list&#10;&#10;Also commented for better understanding of what I have done" />
+    <MESSAGE value="Modified constructor to take in 4 parameters now&#10;&#10;This will allow for initialization of initiative to be simpler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified constructor to take in 4 parameters now&#10;&#10;This will allow for initialization of initiative to be simpler" />
   </component>
   <component name="masterDetails">
     <states>

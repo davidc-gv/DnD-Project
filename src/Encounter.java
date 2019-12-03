@@ -16,6 +16,8 @@ public class Encounter {
    * This will build an encounter which will have an array of Monsters,
    * Players, and an initiative tracker.
    *
+   * The methods are completely random
+   *
    * @param numMon will hold how many randomly generated monsters will be included
    * @param numP   will hold how many players in the encounter
    */
@@ -64,11 +66,16 @@ public class Encounter {
    * This is a different constructor that takes in the player names and initiatives
    *
    * This will add players to the initiative tracker with their corresponding initiative values
+   * This will also add monsters based on the method the user wishes to do so
+   * The monsters can be added via their ID opr via their CR
+   * Helper methods will handle this
    *
    * The constructor will then sort the initiatives accordingly
    *
    * @param playerNames a list of player names
    * @param init a list of initiatives
+   * @param monsterID a list of ID's of monsters to add to the rotation
+   * @param monsterCR a list of CR's of monsters to add to the rotation
    */
   public Encounter(String [] playerNames, int [] init, int [] monsterID, int [] monsterCR){
 
