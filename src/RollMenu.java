@@ -23,6 +23,7 @@ public class RollMenu extends JDialog {
   private JButton d20;
   private JTextField diceCount;
   private JTextField dieType;
+  JTextArea Res;// = new JTextArea ("1\n2\n3\n"+"4\n");
   /*private JButton d10;
   private JButton d12;
   private JButton d8;
@@ -136,7 +137,7 @@ public class RollMenu extends JDialog {
     }
     // Shows the resulting value in rollResult
     else {
-      rollResult.setText("" + resultingSum);
+      rollResult.setText("" + resultingSum );
     }
   }
 
