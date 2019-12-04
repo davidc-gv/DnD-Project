@@ -70,13 +70,13 @@ public class Monster extends Character {
         this.id = id;
         break;
       case 4:
-        name = "Tarrasque";
-        maxHealth = 676;
+        name = "Tribal Warrior";
+        maxHealth = 11;
         health = maxHealth;
-        armorClass = 25;
-        challengeRating = 30;
+        armorClass = 12;
+        challengeRating = 1.0 / 8.0;
         initiative = rnd.nextInt(20 + 1);
-        xp = 155000;
+        xp = 25;
         this.id = id;
         break;
       case 5:
