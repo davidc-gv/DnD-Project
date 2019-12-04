@@ -9,6 +9,8 @@ public class Character {
   int initiative;
   int id;
   String name;
+  double challengeRating;
+  int xp;
 
   /**
    * Constructor method for Character class.
@@ -62,6 +64,17 @@ public class Character {
     }
   }
 
+  public Character(String playerName) {
+    name = "Sam";
+    maxHealth = 0;
+    health = maxHealth;
+    armorClass = 0;
+    initiative = 0;
+    this.id = 0;
+
+  }
+
+
   /**
    * To string method.
    */
@@ -111,4 +124,22 @@ public class Character {
   public void setHealth(int health) {
     this.health = health;
   }
+
+
+  public double getChallengeRating() {
+    return challengeRating;
+  }
+
+  public void setChallengeRating(double challengeRating) {
+    this.challengeRating = challengeRating;
+  }
+
+  public int getXp() {
+    return xp;
+  }
+
+  public void setXp(int xp) {
+    this.xp = xp;
+  }
+
 }

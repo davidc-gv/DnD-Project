@@ -13,4 +13,10 @@ public class Player extends Character {
   public Player(int id) {
     super(id);
   }
+
+  public Player(String playerName) {
+    super(playerName);
+
+
+  }
 }

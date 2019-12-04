@@ -4,14 +4,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.KeyStroke;
+import javax.swing.*;
 
 /**
  * Dialog that serves as the encounter tracker GUI.
@@ -28,15 +21,66 @@ public class EncGUI extends JDialog {
   private JPanel contentPane;
   private JButton addCharacterButton;
   private JTabbedPane initTracker;
-  private Encounter e;
+  private JComboBox monsterList;
+  private JButton addFromList;
+  private JButton addFromChallengeRatingButton;
+  private JTextField challengeRating;
+  private JButton removeCurrentCharacterButton;
+  private Encounter enc;
+  private String[] playerList;
+  private int[] initList;
+  private int monsterID;
+  private int desiredCR;
+
 
   /**
-   * Constructor for the encounter GUI. Adds event listeners tot he buttons and handles closing
+   * Constructor for the encounter GUI. Adds event listeners to the buttons and handles closing.
+   * Gathers information on amount of players, player names, player initiatives, and challenge rating
    */
   public EncGUI() {
     setContentPane(contentPane);
     setModal(true);
     getRootPane().setDefaultButton(addCharacterButton);
+
+    int playerCount = 0;
+    // Asks the user for the amount of players for the encounter and saves it as playerCount
+    while(1==1) {
+      try {
+        playerCount = Integer.parseInt(JOptionPane.showInputDialog("How many players"));
+        if(playerCount < 1){
+          JOptionPane.showMessageDialog(null, "Please enter an amount greater than 0");
+        }
+        else {
+          break;
+        }
+      } catch (Exception ex) {
+        JOptionPane.showMessageDialog(null, "Please enter an integer");
+      }
+    }
+
+    playerList = new String[playerCount];
+    initList = new int[playerCount];
+    int curInit = 0;
+    //Gets the name and initiative of the players
+    for(int i = 0; i < playerCount; ++i){
+      playerList[i] = JOptionPane.showInputDialog("Name of player " + (i+1));
+      while(1==1) {
+        try {
+          curInit = Integer.parseInt(JOptionPane.showInputDialog(playerList[i] + "'s initiative"));
+          if(curInit < 1){
+            JOptionPane.showMessageDialog(null, "Please enter an amount greater than 0");
+          }
+          else {
+            break;
+          }
+        } catch (Exception ex) {
+          JOptionPane.showMessageDialog(null, "Please enter an integer");
+        }
+      }
+      initList[i] = curInit;
+      curInit = 0;
+    }
+
 
     // call onCancel() when cross is clicked
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -65,20 +109,74 @@ public class EncGUI extends JDialog {
         //were going to use our already coded dice roller for our rng
         DiceRoll r = new DiceRoll();
         //we create a new encounter with d6 monsters and d4 players
-        Encounter e = new Encounter(r.rollD6(), r.rollD4());
+        enc = new Encounter(r.rollD6(), r.rollD4());
 
-        for (int i = 0; i < e.initiative.length; i++) {
+        for (int i = 0; i < enc.initiative.size(); i++) {
 
-          String info = "Name: " + e.initiative[i].getName() + "\n ";
-          info += "Health: " + e.initiative[i].getHealth() + "\n ";
-          info += "ArmorClass: " + e.initiative[i].getArmorClass() + "\n ";
-          initTracker.addTab(e.initiative[i].getName(), new JLabel(info));
+          String info = "Name: " + enc.initiative.get(i).getName() + "\n ";
+          info += "Health: " + enc.initiative.get(i).getHealth() + "\n ";
+          info += "ArmorClass: " + enc.initiative.get(i).getArmorClass() + "\n ";
+          info += "Initiative: " + enc.initiative.get(i).getInitiative() + "\n";
+          initTracker.addTab(enc.initiative.get(i).getName(), new JTextArea(info));
         }
 
         //initTracker.addTab("New Char", new JLabel("New Character"));
       }
     });
+
+    int[] empty = new int[0];
+    enc = new Encounter(playerList, initList, empty, empty);
+
+    // Adds monster from a list
+    addFromList.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        monsterID = monsterList.getSelectedIndex();
+        enc.addMonster(monsterID);
+        String info = "Name: " + enc.initiative.get(enc.initiative.size()-1).getName() + "\n ";
+        info += "Health: " + enc.initiative.get(enc.initiative.size()-1).getHealth() + "\n ";
+        info += "ArmorClass: " + enc.initiative.get(enc.initiative.size()-1).getArmorClass() + "\n ";
+        info += "Initiative: " + enc.initiative.get(enc.initiative.size()-1).getInitiative() + "\n";
+        initTracker.addTab(enc.initiative.get(enc.initiative.size()-1).getName(), new JTextArea(info));
+      }
+    });
+
+    // Adds monsters according to challenge rating
+    addFromChallengeRatingButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        try {
+          if(Integer.parseInt(challengeRating.getText()) < 0.25){
+            JOptionPane.showMessageDialog(null, "Please enter an amount greater than 1/4");
+          }
+          else{
+            desiredCR = Integer.parseInt(challengeRating.getText());
+            enc.addMonster(desiredCR);
+          }
+        } catch (Exception ex) {
+          JOptionPane.showMessageDialog(null, "Please enter a valid challenge rating");
+        }
+      }
+    });
+
+    // Removes the active tab from the initiative tracker
+    removeCurrentCharacterButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        try{
+          int index = initTracker.getSelectedIndex();
+          initTracker.removeTabAt(index);
+
+        }catch(Exception ex){
+
+        }
+      }
+    });
   }
+
+  /**
+   * Sets up a tab for the character in the initiative tracker
+   */
 
   /**
    * Closes the window.
@@ -106,16 +204,33 @@ public class EncGUI extends JDialog {
     Encounter e = new Encounter(r.rollD6(), r.rollD4());
 
     //we then add all of these monsters and players into the jTabbedPane
-    for (int i = 0; i < e.initiative.length; i++) {
+    for (int i = 0; i < e.initiative.size(); i++) {
 
-      String info = "Name: " + e.initiative[i].getName() + "\n";
-      info += "Health: " + e.initiative[i].getHealth() + "\n";
-      info += "ArmorClass: " + e.initiative[i].getArmorClass() + "\n";
+      String info = "Name: " + e.initiative.get(i).getName() + "\n";
+      info += "Health: " + e.initiative.get(i).getHealth() + "\n";
+      info += "ArmorClass: " + e.initiative.get(i).getArmorClass() + "\n";
+      info += "Initiative: " + e.initiative.get(i).getInitiative() + "\n";
 
-      dialog.initTracker.addTab(e.initiative[i].getName(), new JLabel(info));
+      dialog.initTracker.addTab(e.initiative.get(i).getName(), new JTextArea(info));
     }
 
 
     System.exit(0);
+  }
+
+  public String[] getPlayerList() {
+    return playerList;
+  }
+
+  public int[] getInitList() {
+    return initList;
+  }
+
+  public int getMonsterID() {
+    return monsterID;
+  }
+
+  public double getDesiredCR() {
+    return desiredCR;
   }
 }
