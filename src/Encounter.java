@@ -179,7 +179,7 @@ public class Encounter {
 
     Character temp = init[0];
 
-    for(int i = 1; i < init.length -1; i++){
+    for(int i = 1; i < init.length; i++){
 
       init[i-1] = init[i];
 
