@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbcfbc5e-8182-4553-a78e-ebe6a81f540b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Dice_Roll.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Encounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/Encounter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Loot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/Loot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/Monster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/fGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/fGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Encounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Encounter.java" afterDir="false" />
-    </list>
+    <list default="true" id="fbcfbc5e-8182-4553-a78e-ebe6a81f540b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +32,9 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
@@ -114,7 +88,7 @@
       <workItem from="1574301456137" duration="713000" />
       <workItem from="1574441014289" duration="1527000" />
       <workItem from="1575308470960" duration="11495000" />
-      <workItem from="1575483086908" duration="3018000" />
+      <workItem from="1575483086908" duration="3422000" />
     </task>
     <task id="LOCAL-00001" summary="Original commit">
       <created>1571854789416</created>
@@ -200,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575338292674</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixes adding monsters by CR and the constructor for encounter">
+      <created>1575502407444</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1575502407444</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,92 +211,7 @@
     <MESSAGE value="Fixed constructor to include an int list&#10;&#10;Also commented for better understanding of what I have done" />
     <MESSAGE value="Modified constructor to take in 4 parameters now&#10;&#10;This will allow for initialization of initiative to be simpler" />
     <MESSAGE value="Fixing commenting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing commenting" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>11</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>DnD-Project</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <MESSAGE value="Fixes adding monsters by CR and the constructor for encounter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes adding monsters by CR and the constructor for encounter" />
   </component>
 </project>

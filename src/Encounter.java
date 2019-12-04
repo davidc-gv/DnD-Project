@@ -88,7 +88,8 @@ public class Encounter {
       Player p = new Player(playerNames[i]);
       p.initiative = init[i];
       p.name = playerNames[i];
-
+      p.challengeRating = -1;
+      p.xp = -1;
       initiative.add(p);
 
     }
