@@ -77,7 +77,7 @@ public class Encounter {
    * @param monsterID a list of ID's of monsters to add to the rotation
    * @param monsterCR a list of CR's of monsters to add to the rotation
    */
-  public Encounter(String [] playerNames, int [] init, int [] monsterID, int [] monsterCR){
+  public Encounter(String [] playerNames, int [] init, int [] monsterID, double [] monsterCR){
 
     initiative = new ArrayList<>();
 
@@ -87,6 +87,7 @@ public class Encounter {
     for(int i = 0; i < playerNames.length; i++){
       Player p = new Player(playerNames[i]);
       p.initiative = init[i];
+      p.name = playerNames[i];
 
       initiative.add(p);
 
@@ -99,9 +100,9 @@ public class Encounter {
     }
 
     //adding the monsters based on CR
-    for(int value : monsterCR){
+    for (double v : monsterCR) {
       //call helper method
-      addMonsterCR(monsterCR[value]);
+      addMonsterCR(v);
     }
 
 
@@ -236,7 +237,7 @@ public class Encounter {
    *
    * @param ChallengeRating is the challenge rating of the monster we want to add
    */
-  public void addMonsterCR(int ChallengeRating){
+  public void addMonsterCR(double ChallengeRating){
 
     DiceRoll d = new DiceRoll();
     Monster mon = new Monster(d.rollD4());

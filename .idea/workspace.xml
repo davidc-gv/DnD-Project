@@ -2,6 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbcfbc5e-8182-4553-a78e-ebe6a81f540b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Dice_Roll.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Encounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/Encounter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Loot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/Loot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/LootMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/Monster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/RollMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/fGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/fGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/fGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Encounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Encounter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,7 +61,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -89,7 +113,8 @@
       <workItem from="1574272339509" duration="893000" />
       <workItem from="1574301456137" duration="713000" />
       <workItem from="1574441014289" duration="1527000" />
-      <workItem from="1575308470960" duration="10828000" />
+      <workItem from="1575308470960" duration="11495000" />
+      <workItem from="1575483086908" duration="3018000" />
     </task>
     <task id="LOCAL-00001" summary="Original commit">
       <created>1571854789416</created>
@@ -168,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575337662491</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fixing commenting">
+      <created>1575338292674</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1575338292674</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,7 +229,8 @@
     <MESSAGE value="Adding overhaul for Encounter, Monster, Character, and Player.&#10;&#10;Fundamentally changes many aspects of each.&#10;&#10;Players, Characters, and Monsters all have the same parameters&#10;&#10;This makes it so it can easily be accessed in the GUI" />
     <MESSAGE value="Fixed constructor to include an int list&#10;&#10;Also commented for better understanding of what I have done" />
     <MESSAGE value="Modified constructor to take in 4 parameters now&#10;&#10;This will allow for initialization of initiative to be simpler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified constructor to take in 4 parameters now&#10;&#10;This will allow for initialization of initiative to be simpler" />
+    <MESSAGE value="Fixing commenting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing commenting" />
   </component>
   <component name="masterDetails">
     <states>
