@@ -74,8 +74,8 @@ public class LootMenu extends JDialog {
    */
   private void onGenerate() {
     Loot loot = new Loot();
-    generatedLoot.setText(loot.itemType() + " with " + loot.itemModifier());
     int cr = Integer.parseInt(challengeRating.getText());
+    generatedLoot.setText(loot.itemType(cr));
     gold.setText("Gold: " + loot.goldAmount(cr));
   }
 
