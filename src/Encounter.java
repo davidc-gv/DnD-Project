@@ -252,7 +252,7 @@ public class Encounter {
     DiceRoll d = new DiceRoll();
     Monster mon = new Monster(d.rollD4());
 
-    for(int i = 0; i < 15; i++){
+    for(int i = 0; i <= 15; i++){
 
       mon = new Monster(i);
 
