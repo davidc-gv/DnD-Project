@@ -1,3 +1,6 @@
+import com.sun.org.apache.xml.internal.security.Init;
+import jdk.nashorn.internal.scripts.JO;
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +22,7 @@ import javax.swing.*;
 public class EncGUI extends JDialog {
   private JFrame frame;
   private JPanel contentPane;
-  private JButton randomEncounter;
+  //private JButton randomEncounter;
   private JTabbedPane initTracker;
   private JComboBox monsterList;
   private JButton addFromList;
@@ -42,7 +45,7 @@ public class EncGUI extends JDialog {
   public EncGUI() {
     setContentPane(contentPane);
     setModal(true);
-    getRootPane().setDefaultButton(randomEncounter);
+    // getRootPane().setDefaultButton(randomEncounter);
 
     int playerCount = 0;
     // Asks the user for the amount of players for the encounter and saves it as playerCount
@@ -63,9 +66,10 @@ public class EncGUI extends JDialog {
     playerList = new String[playerCount];
     initList = new int[playerCount];
     int curInit = 0;
-    //Gets the name and initiative of the players
+
+    // Gets the name and initiative of the players
     for(int i = 0; i < playerCount; ++i){
-      playerList[i] = JOptionPane.showInputDialog("Name of player " + (i+1));
+      playerList[i] = JOptionPane.showInputDialog("Name of player " + (i + 1));
       while(1==1) {
         try {
           curInit = Integer.parseInt(JOptionPane.showInputDialog(playerList[i] + "'s initiative"));
@@ -83,9 +87,34 @@ public class EncGUI extends JDialog {
       curInit = 0;
     }
 
-    int[] emptyI = new int[0];
-    double[] emptyD = new double[0];
-    enc = new Encounter(playerList, initList, emptyI, emptyD);
+    InitialMonsters initialMonsters = new InitialMonsters();
+    // Sets size to slightly smaller than main window
+    initialMonsters.setPreferredSize(new Dimension(500, 400));
+    initialMonsters.pack();
+    // Places window in center of screen
+    initialMonsters.setLocationRelativeTo(null);
+    initialMonsters.setVisible(true);
+
+    int[] initID = new int[initialMonsters.getIdList().size()];
+    double[] initCR = new double[initialMonsters.getCrList().size()];
+
+    for(int i = 0; i < initialMonsters.getIdList().size() - 1; ++i){
+      initID[i] = initialMonsters.getIdList().get(i);
+    }
+
+    for(int j = 0; j < initialMonsters.getCrList().size() - 1; ++j){
+      initCR[j] = initialMonsters.getCrList().get(j);
+    }
+
+    enc = new Encounter(playerList, initList, initID, initCR);
+
+    /*String[] options = {"Kobold","Bandit","Flying Snake","Dolphin"};
+    try{
+      enc.addMonster(JOptionPane.showInputDialog(null,"Choose a Monster",
+              "Monster List", JOptionPane.QUESTION_MESSAGE, null, options, options[0]));
+    }catch(Exception ex){
+
+    }*/
 
     // call onCancel() when cross is clicked
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -107,7 +136,7 @@ public class EncGUI extends JDialog {
 
     //Action listener for the add character button that adds a new tab to the initiative tracker
 
-    randomEncounter.addActionListener(new ActionListener() {
+    /*randomEncounter.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent actionEvent) {
 
@@ -122,13 +151,12 @@ public class EncGUI extends JDialog {
           info += "Health: " + enc.initiative.get(i).getHealth() + "\n ";
           info += "ArmorClass: " + enc.initiative.get(i).getArmorClass() + "\n ";
           info += "Initiative: " + enc.initiative.get(i).getInitiative() + "\n";
-          initTracker.addTab(enc.initiative.get(i).getName(), new JTextArea(info));*/
+          initTracker.addTab(enc.initiative.get(i).getName(), new JTextArea(info));
         }
 
         //initTracker.addTab("New Char", new JLabel("New Character"));
       }
-    });
-
+    });*/
 
 
     // Adds monster from a list
@@ -151,11 +179,11 @@ public class EncGUI extends JDialog {
       @Override
       public void actionPerformed(ActionEvent e) {
         try {
-          if(Integer.parseInt(challengeRating.getText()) < 0.25){
-            JOptionPane.showMessageDialog(null, "Please enter an amount greater than 1/4");
+          if(Double.parseDouble(challengeRating.getText()) < 0.125){
+            JOptionPane.showMessageDialog(null, "Please enter an amount greater than 1/8");
           }
           else{
-            desiredCR = Integer.parseInt(challengeRating.getText());
+            desiredCR = Double.parseDouble(challengeRating.getText());
             enc.addMonsterCR(desiredCR);
             update();
           }
@@ -172,6 +200,7 @@ public class EncGUI extends JDialog {
         try{
           int index = initTracker.getSelectedIndex();
           initTracker.removeTabAt(index);
+          enc.removeChar(index);
 
         }catch(Exception ex){
 
