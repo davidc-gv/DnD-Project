@@ -52,6 +52,18 @@
                 <item value="Bandit"/>
                 <item value="Flying Snake"/>
                 <item value="Dolphin"/>
+                <item value="Tribal Warrior"/>
+                <item value="Sprite"/>
+                <item value="Giant Goat"/>
+                <item value="Tiger"/>
+                <item value="Gelatinous Cube"/>
+                <item value="Basilisk"/>
+                <item value="Gorgon"/>
+                <item value="Giant Ape"/>
+                <item value="Young Silver Dragon"/>
+                <item value="Behir"/>
+                <item value="Vampire"/>
+                <item value="Adult Purple Dragon"/>
               </model>
             </properties>
           </component>
