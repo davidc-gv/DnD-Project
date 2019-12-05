@@ -179,8 +179,8 @@ public class EncGUI extends JDialog {
       @Override
       public void actionPerformed(ActionEvent e) {
         try {
-          if(Double.parseDouble(challengeRating.getText()) < 0.125){
-            JOptionPane.showMessageDialog(null, "Please enter an amount greater than 1/8");
+          if(Double.parseDouble(challengeRating.getText()) < 0.125 || Double.parseDouble(challengeRating.getText()) > 15){
+            JOptionPane.showMessageDialog(null, "Please enter an amount between 0.125 and 15");
           }
           else{
             desiredCR = Double.parseDouble(challengeRating.getText());
