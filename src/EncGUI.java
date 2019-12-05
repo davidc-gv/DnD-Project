@@ -19,18 +19,20 @@ import javax.swing.*;
 public class EncGUI extends JDialog {
   private JFrame frame;
   private JPanel contentPane;
-  private JButton addCharacterButton;
+  private JButton randomEncounter;
   private JTabbedPane initTracker;
   private JComboBox monsterList;
   private JButton addFromList;
   private JButton addFromChallengeRatingButton;
   private JTextField challengeRating;
   private JButton removeCurrentCharacterButton;
+  private JButton nextButton;
+  private JButton endButton;
   private Encounter enc;
   private String[] playerList;
   private int[] initList;
   private int monsterID;
-  private int desiredCR;
+  private double desiredCR;
 
 
   /**
@@ -40,7 +42,7 @@ public class EncGUI extends JDialog {
   public EncGUI() {
     setContentPane(contentPane);
     setModal(true);
-    getRootPane().setDefaultButton(addCharacterButton);
+    getRootPane().setDefaultButton(randomEncounter);
 
     int playerCount = 0;
     // Asks the user for the amount of players for the encounter and saves it as playerCount
@@ -81,6 +83,9 @@ public class EncGUI extends JDialog {
       curInit = 0;
     }
 
+    int[] emptyI = new int[0];
+    double[] emptyD = new double[0];
+    enc = new Encounter(playerList, initList, emptyI, emptyD);
 
     // call onCancel() when cross is clicked
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -102,7 +107,7 @@ public class EncGUI extends JDialog {
 
     //Action listener for the add character button that adds a new tab to the initiative tracker
 
-    addCharacterButton.addActionListener(new ActionListener() {
+    randomEncounter.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent actionEvent) {
 
@@ -112,20 +117,19 @@ public class EncGUI extends JDialog {
         enc = new Encounter(r.rollD6(), r.rollD4());
 
         for (int i = 0; i < enc.initiative.size(); i++) {
-
-          String info = "Name: " + enc.initiative.get(i).getName() + "\n ";
+          update();
+          /*String info = "Name: " + enc.initiative.get(i).getName() + "\n ";
           info += "Health: " + enc.initiative.get(i).getHealth() + "\n ";
           info += "ArmorClass: " + enc.initiative.get(i).getArmorClass() + "\n ";
           info += "Initiative: " + enc.initiative.get(i).getInitiative() + "\n";
-          initTracker.addTab(enc.initiative.get(i).getName(), new JTextArea(info));
+          initTracker.addTab(enc.initiative.get(i).getName(), new JTextArea(info));*/
         }
 
         //initTracker.addTab("New Char", new JLabel("New Character"));
       }
     });
 
-    int[] empty = new int[0];
-    enc = new Encounter(playerList, initList, empty, empty);
+
 
     // Adds monster from a list
     addFromList.addActionListener(new ActionListener() {
@@ -133,11 +137,12 @@ public class EncGUI extends JDialog {
       public void actionPerformed(ActionEvent e) {
         monsterID = monsterList.getSelectedIndex();
         enc.addMonster(monsterID);
-        String info = "Name: " + enc.initiative.get(enc.initiative.size()-1).getName() + "\n ";
+        /*String info = "Name: " + enc.initiative.get(enc.initiative.size()-1).getName() + "\n ";
         info += "Health: " + enc.initiative.get(enc.initiative.size()-1).getHealth() + "\n ";
         info += "ArmorClass: " + enc.initiative.get(enc.initiative.size()-1).getArmorClass() + "\n ";
         info += "Initiative: " + enc.initiative.get(enc.initiative.size()-1).getInitiative() + "\n";
-        initTracker.addTab(enc.initiative.get(enc.initiative.size()-1).getName(), new JTextArea(info));
+        initTracker.addTab(enc.initiative.get(enc.initiative.size()-1).getName(), new JTextArea(info));*/
+        update();
       }
     });
 
@@ -151,7 +156,8 @@ public class EncGUI extends JDialog {
           }
           else{
             desiredCR = Integer.parseInt(challengeRating.getText());
-            enc.addMonster(desiredCR);
+            enc.addMonsterCR(desiredCR);
+            update();
           }
         } catch (Exception ex) {
           JOptionPane.showMessageDialog(null, "Please enter a valid challenge rating");
@@ -172,6 +178,20 @@ public class EncGUI extends JDialog {
         }
       }
     });
+    endButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        onCancel();
+      }
+    });
+    nextButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        enc.nextTurn();
+        update();
+      }
+    });
+    update();
   }
 
   /**
@@ -206,31 +226,34 @@ public class EncGUI extends JDialog {
     //we then add all of these monsters and players into the jTabbedPane
     for (int i = 0; i < e.initiative.size(); i++) {
 
-      String info = "Name: " + e.initiative.get(i).getName() + "\n";
+      /*String info = "Name: " + e.initiative.get(i).getName() + "\n";
       info += "Health: " + e.initiative.get(i).getHealth() + "\n";
       info += "ArmorClass: " + e.initiative.get(i).getArmorClass() + "\n";
       info += "Initiative: " + e.initiative.get(i).getInitiative() + "\n";
 
       dialog.initTracker.addTab(e.initiative.get(i).getName(), new JTextArea(info));
+      */
     }
 
 
     System.exit(0);
   }
 
-  public String[] getPlayerList() {
-    return playerList;
-  }
+  private void update(){
+    initTracker.removeAll();
+    for(int i = 0; i < enc.initiative.size(); ++i){
+      String info = "Name: " + enc.initiative.get(i).getName() + "\n";
+      info += "Health: " + enc.initiative.get(i).getHealth() + "\n";
+      info += "ArmorClass: " + enc.initiative.get(i).getArmorClass() + "\n";
+      info += "Initiative: " + enc.initiative.get(i).getInitiative() + "\n";
+      if(enc.initiative.get(i).getChallengeRating() != -1){
+        info += "Challenge Rating: " + enc.initiative.get(i).getChallengeRating() + "\n";
+      }
+      if(enc.initiative.get(i).getXp() != -1){
+        info += "Exp: " + enc.initiative.get(i).getXp();
+      }
 
-  public int[] getInitList() {
-    return initList;
-  }
-
-  public int getMonsterID() {
-    return monsterID;
-  }
-
-  public double getDesiredCR() {
-    return desiredCR;
+      initTracker.addTab(enc.initiative.get(i).getName(), new JTextArea(info));
+    }
   }
 }
