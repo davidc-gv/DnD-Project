@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbcfbc5e-8182-4553-a78e-ebe6a81f540b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Tests/EncounterTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/EncGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Encounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/Encounter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/Monster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DnD-Project/fGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DnD-Project/fGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Encounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Encounter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +115,7 @@
       <workItem from="1574301456137" duration="713000" />
       <workItem from="1574441014289" duration="1527000" />
       <workItem from="1575308470960" duration="11495000" />
-      <workItem from="1575483086908" duration="4537000" />
+      <workItem from="1575483086908" duration="6336000" />
     </task>
     <task id="LOCAL-00001" summary="Original commit">
       <created>1571854789416</created>
@@ -214,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575503494415</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="problem with next turn">
+      <created>1575503983121</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1575503983121</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +262,7 @@
     <MESSAGE value="Fixes adding monsters by CR and the constructor for encounter" />
     <MESSAGE value="fixed challengerating and xp" />
     <MESSAGE value="Added testing capabilities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added testing capabilities" />
+    <MESSAGE value="problem with next turn" />
+    <option name="LAST_COMMIT_MESSAGE" value="problem with next turn" />
   </component>
 </project>

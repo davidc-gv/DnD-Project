@@ -127,6 +127,8 @@ public class Encounter {
    */
   private void sortInitiative() {
 
+
+
     Character [] init = new Character[initiative.size()];
 
     for(int i = 0; i < initiative.size(); i++){
@@ -150,10 +152,17 @@ public class Encounter {
     ArrayList<Character> x = new ArrayList<Character>();
 
     //this adds all of the elements of init to x
-    Collections.addAll(x, init);
+    //Collections.addAll(x, init);
+
+    for(int i = init.length-1; i >= 0; i--){
+
+      x.add(init[i]);
+
+    }
 
     //we then set initiative equal to x
     initiative = x;
+
 
   }
 
@@ -243,7 +252,7 @@ public class Encounter {
     DiceRoll d = new DiceRoll();
     Monster mon = new Monster(d.rollD4());
 
-    for(int i = 0; i < 4; i++){
+    for(int i = 0; i < 15; i++){
 
       mon = new Monster(i);
 
