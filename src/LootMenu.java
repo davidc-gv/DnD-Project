@@ -3,13 +3,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.KeyStroke;
+import javax.swing.*;
 
 /**
  * Dialog that serves as the GUI for the loot generation system. Displays one generated
@@ -38,8 +32,18 @@ public class LootMenu extends JDialog {
 
     enterButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        int cr = Integer.parseInt(challengeRating.getText());
-        crDisplay.setText("CR:  " + Integer.toString(cr));
+        try {
+          if(Double.parseDouble(challengeRating.getText()) < 0.125 || Double.parseDouble(challengeRating.getText()) > 15){
+            JOptionPane.showMessageDialog(null, "Please enter an amount between 0.125 and 15");
+          }
+          else{
+            crDisplay.setText("CR: " + Double.parseDouble(challengeRating.getText()));
+          }
+        } catch (Exception ex) {
+          JOptionPane.showMessageDialog(null, "Please enter a valid challenge rating");
+        }
+        /*int cr = Integer.parseInt(challengeRating.getText());
+        crDisplay.setText("CR:  " + Integer.toString(cr));*/
       }
     });
 
@@ -80,8 +84,8 @@ public class LootMenu extends JDialog {
    */
   private void onGenerate() {
     Loot loot = new Loot();
+    generatedLoot.setText(loot.itemType() + " with " + loot.itemModifier());
     int cr = Integer.parseInt(challengeRating.getText());
-    generatedLoot.setText(loot.itemType(cr));
     gold.setText("Gold: " + loot.goldAmount(cr));
   }
 
@@ -96,7 +100,7 @@ public class LootMenu extends JDialog {
   /**
    * Main method. Initializes the menu and makes it visible
    *
-   * @param args main argument.
+   * @param args
    */
   public static void main(String[] args) {
     LootMenu dialog = new LootMenu();
