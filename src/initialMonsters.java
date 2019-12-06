@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class InitialMonsters extends JDialog {
+class InitialMonsters extends JDialog {
     private JPanel contentPane;
     private JComboBox monsterList;
     private JTextField challengeRating;

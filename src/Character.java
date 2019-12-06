@@ -22,7 +22,7 @@ public class Character {
     int ranCharacter = rnd.nextInt(4);
     switch (ranCharacter) {
       default:
-        name = "Sam";
+        name = "James";
         maxHealth = rnd.nextInt(5 + 13);
         health = maxHealth;
         armorClass = rnd.nextInt(5 + 13);
@@ -65,7 +65,7 @@ public class Character {
   }
 
   public Character(String playerName) {
-    name = "Sam";
+    name = playerName;
     maxHealth = 0;
     health = maxHealth;
     armorClass = 0;
@@ -119,27 +119,19 @@ public class Character {
   }
 
   /**
-   * mutator method for the Character's current health.
+   * accessor method for the Character's challengeRating.
+   *
+   * @return the challengeRating of the Character.
    */
-  public void setHealth(int health) {
-    this.health = health;
-  }
 
+  public double getChallengeRating(){ return challengeRating;}
 
-  public double getChallengeRating() {
-    return challengeRating;
-  }
+  /**
+   * accessor method for the Character's xp.
+   *
+   * @return the xp of the Character.
+   */
 
-  public void setChallengeRating(double challengeRating) {
-    this.challengeRating = challengeRating;
-  }
-
-  public int getXp() {
-    return xp;
-  }
-
-  public void setXp(int xp) {
-    this.xp = xp;
-  }
+  public int getXp() { return xp; }
 
 }

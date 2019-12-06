@@ -191,23 +191,6 @@ public class Monster extends Character {
         break;
     }
   }
-
-  /**
-   * accessor method for the monster's challenge rating.
-   *
-   * @return the challenge rating of the monster.
-   */
-  public double getChallengeRating() {
-    return challengeRating;
-  }
-
-  /**
-   * accessor method for the monster's xp.
-   *
-   * @return the xp of the monster.
-   */
-  public int getXp() {
-    return xp;
-  }
 }
+
 
