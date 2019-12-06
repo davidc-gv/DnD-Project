@@ -33,8 +33,8 @@ public class LootMenu extends JDialog {
     enterButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         try {
-          if(Integer.parseInt(challengeRating.getText()) < 1 || Integer.parseInt(challengeRating.getText()) > 15){
-            JOptionPane.showMessageDialog(null, "Please enter an amount between 1 and 15");
+          if(Integer.parseInt(challengeRating.getText()) < 1 || Integer.parseInt(challengeRating.getText()) > 100){
+            JOptionPane.showMessageDialog(null, "Please enter an amount between 1 and 100");
           }
           else{
             crDisplay.setText("CR:  " + Integer.parseInt(challengeRating.getText()));
@@ -85,8 +85,8 @@ public class LootMenu extends JDialog {
   private void onGenerate() {
     Loot loot = new Loot();
     try {
-      if(Integer.parseInt(challengeRating.getText()) < 1 || Integer.parseInt(challengeRating.getText()) > 15){
-        JOptionPane.showMessageDialog(null, "Please enter an amount between 1 and 15");
+      if(Integer.parseInt(challengeRating.getText()) < 1 || Integer.parseInt(challengeRating.getText()) > 100){
+        JOptionPane.showMessageDialog(null, "Please enter an amount between 1 and 100");
       }
       else{
         crDisplay.setText("CR:  " + Integer.parseInt(challengeRating.getText()));
