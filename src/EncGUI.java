@@ -58,6 +58,7 @@ public class EncGUI extends JDialog {
     int playerCount = 0;
     // Asks the user for the amount of players for the encounter and saves it as playerCount
     while (1 == 1) {
+      // Makes sure the player amount is an integer greater than 1
       try {
         playerCount = Integer.parseInt(JOptionPane.showInputDialog("How many players"));
         if (playerCount < 1) {
@@ -69,8 +70,10 @@ public class EncGUI extends JDialog {
         JOptionPane.showMessageDialog(null, "Please enter an integer");
       }
     }
-
+    
+    // List of player names
     playerList = new String[playerCount];
+    // List of player initiatives
     initList = new int[playerCount];
     int curInit = 0;
 
@@ -78,6 +81,7 @@ public class EncGUI extends JDialog {
     for (int i = 0; i < playerCount; ++i) {
       playerList[i] = JOptionPane.showInputDialog("Name of player " + (i + 1));
       while (1 == 1) {
+        // Makes sure initiative is an integer greater than 0
         try {
           curInit = Integer.parseInt(JOptionPane.showInputDialog(playerList[i] + "'s initiative"));
           if (curInit < 1) {
@@ -101,6 +105,7 @@ public class EncGUI extends JDialog {
     initialMonsters.setLocationRelativeTo(null);
     initialMonsters.setVisible(true);
 
+    // Gets monster IDs and CRs from initialMonster form
     int[] initID = new int[initialMonsters.getIdList().size()];
     double[] initCR = new double[initialMonsters.getCrList().size()];
 
@@ -188,6 +193,7 @@ public class EncGUI extends JDialog {
       @Override
       public void actionPerformed(ActionEvent e) {
         try {
+          // Ensures monster is a double between 0.125 and 15
           if (Double.parseDouble(challengeRating.getText()) < 0.125
               || Double.parseDouble(challengeRating.getText()) > 15) {
             JOptionPane.showMessageDialog(null, "Please enter an amount between 0.125 and 15");
@@ -216,12 +222,16 @@ public class EncGUI extends JDialog {
         }
       }
     });
+    
+    // Closes the encounter
     endButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
         onCancel();
       }
     });
+    
+    // Advances the initiative
     nextButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
@@ -277,7 +287,12 @@ public class EncGUI extends JDialog {
     System.exit(0);
   }
 
+  /*
+  * Clears the initTracker and displays all the relative information of the encounter dependent on 
+  * the type of character (monsters have more info like challenge rating and exp
+  */
   private void update() {
+    // Clears the tracker
     initTracker.removeAll();
     for (int i = 0; i < enc.initiative.size(); ++i) {
       String info = "Name: " + enc.initiative.get(i).getName() + "\n";
