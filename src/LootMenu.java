@@ -3,7 +3,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 /**
  * Dialog that serves as the GUI for the loot generation system. Displays one generated
@@ -90,7 +96,7 @@ public class LootMenu extends JDialog {
   /**
    * Main method. Initializes the menu and makes it visible
    *
-   * @param args
+   * @param args main argument.
    */
   public static void main(String[] args) {
     LootMenu dialog = new LootMenu();

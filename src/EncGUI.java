@@ -1,6 +1,20 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 /**
  * Dialog that serves as the encounter tracker GUI.
@@ -33,7 +47,8 @@ public class EncGUI extends JDialog {
 
   /**
    * Constructor for the encounter GUI. Adds event listeners to the buttons and handles closing.
-   * Gathers information on amount of players, player names, player initiatives, and challenge rating
+   * Gathers information on amount of players, player names, player initiatives, and challenge
+   * rating.
    */
   public EncGUI() {
     setContentPane(contentPane);
@@ -42,13 +57,12 @@ public class EncGUI extends JDialog {
 
     int playerCount = 0;
     // Asks the user for the amount of players for the encounter and saves it as playerCount
-    while(1==1) {
+    while (1 == 1) {
       try {
         playerCount = Integer.parseInt(JOptionPane.showInputDialog("How many players"));
-        if(playerCount < 1){
+        if (playerCount < 1) {
           JOptionPane.showMessageDialog(null, "Please enter an amount greater than 0");
-        }
-        else {
+        } else {
           break;
         }
       } catch (Exception ex) {
@@ -61,15 +75,14 @@ public class EncGUI extends JDialog {
     int curInit = 0;
 
     // Gets the name and initiative of the players
-    for(int i = 0; i < playerCount; ++i){
+    for (int i = 0; i < playerCount; ++i) {
       playerList[i] = JOptionPane.showInputDialog("Name of player " + (i + 1));
-      while(1==1) {
+      while (1 == 1) {
         try {
           curInit = Integer.parseInt(JOptionPane.showInputDialog(playerList[i] + "'s initiative"));
-          if(curInit < 1){
+          if (curInit < 1) {
             JOptionPane.showMessageDialog(null, "Please enter an amount greater than 0");
-          }
-          else {
+          } else {
             break;
           }
         } catch (Exception ex) {
@@ -91,11 +104,11 @@ public class EncGUI extends JDialog {
     int[] initID = new int[initialMonsters.getIdList().size()];
     double[] initCR = new double[initialMonsters.getCrList().size()];
 
-    for(int i = 0; i < initialMonsters.getIdList().size() - 1; ++i){
+    for (int i = 0; i < initialMonsters.getIdList().size() - 1; ++i) {
       initID[i] = initialMonsters.getIdList().get(i);
     }
 
-    for(int j = 0; j < initialMonsters.getCrList().size() - 1; ++j){
+    for (int j = 0; j < initialMonsters.getCrList().size() - 1; ++j) {
       initCR[j] = initialMonsters.getCrList().get(j);
     }
 
@@ -160,9 +173,12 @@ public class EncGUI extends JDialog {
         enc.addMonster(monsterID);
         /*String info = "Name: " + enc.initiative.get(enc.initiative.size()-1).getName() + "\n ";
         info += "Health: " + enc.initiative.get(enc.initiative.size()-1).getHealth() + "\n ";
-        info += "ArmorClass: " + enc.initiative.get(enc.initiative.size()-1).getArmorClass() + "\n ";
-        info += "Initiative: " + enc.initiative.get(enc.initiative.size()-1).getInitiative() + "\n";
-        initTracker.addTab(enc.initiative.get(enc.initiative.size()-1).getName(), new JTextArea(info));*/
+        info += "ArmorClass: " +
+        enc.initiative.get(enc.initiative.size()-1).getArmorClass() + "\n ";
+        info += "Initiative: " +
+        enc.initiative.get(enc.initiative.size()-1).getInitiative() + "\n";
+        initTracker.addTab(enc.initiative.get(enc.initiative.size()-1).getName(),
+        new JTextArea(info));*/
         update();
       }
     });
@@ -172,10 +188,9 @@ public class EncGUI extends JDialog {
       @Override
       public void actionPerformed(ActionEvent e) {
         try {
-          if(Double.parseDouble(challengeRating.getText()) < 0.125 || Double.parseDouble(challengeRating.getText()) > 15){
+          if (Double.parseDouble(challengeRating.getText()) < 0.125 || Double.parseDouble(challengeRating.getText()) > 15) {
             JOptionPane.showMessageDialog(null, "Please enter an amount between 0.125 and 15");
-          }
-          else{
+          } else {
             desiredCR = Double.parseDouble(challengeRating.getText());
             enc.addMonsterCR(desiredCR);
             update();
@@ -190,12 +205,12 @@ public class EncGUI extends JDialog {
     removeCurrentCharacterButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        try{
+        try {
           int index = initTracker.getSelectedIndex();
           initTracker.removeTabAt(index);
           enc.removeChar(index);
 
-        }catch(Exception ex){
+        } catch (Exception ex) {
 
         }
       }
@@ -216,7 +231,7 @@ public class EncGUI extends JDialog {
     update();
   }
 
-  /**
+  /*
    * Sets up a tab for the character in the initiative tracker
    */
 
@@ -230,7 +245,7 @@ public class EncGUI extends JDialog {
   /**
    * Main method. Initializes the menu and makes it visible.
    *
-   * @param args
+   * @param args main argument
    */
   public static void main(String[] args) {
     EncGUI dialog = new EncGUI();
@@ -261,17 +276,17 @@ public class EncGUI extends JDialog {
     System.exit(0);
   }
 
-  private void update(){
+  private void update() {
     initTracker.removeAll();
-    for(int i = 0; i < enc.initiative.size(); ++i){
+    for (int i = 0; i < enc.initiative.size(); ++i) {
       String info = "Name: " + enc.initiative.get(i).getName() + "\n";
       info += "Health: " + enc.initiative.get(i).getHealth() + "\n";
       info += "ArmorClass: " + enc.initiative.get(i).getArmorClass() + "\n";
       info += "Initiative: " + enc.initiative.get(i).getInitiative() + "\n";
-      if(enc.initiative.get(i).getChallengeRating() != -1){
+      if (enc.initiative.get(i).getChallengeRating() != -1) {
         info += "Challenge Rating: " + enc.initiative.get(i).getChallengeRating() + "\n";
       }
-      if(enc.initiative.get(i).getXp() != -1){
+      if (enc.initiative.get(i).getXp() != -1) {
         info += "Exp: " + enc.initiative.get(i).getXp();
       }
 

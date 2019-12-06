@@ -14,6 +14,11 @@ public class Player extends Character {
     super(id);
   }
 
+  /**
+   * Constructor method for Player class.
+   * Parameter playerName used to specify the name for the player object.
+   */
+
   public Player(String playerName) {
     super(playerName);
 

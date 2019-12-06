@@ -14,55 +14,16 @@ public class Character {
 
   /**
    * Constructor method for Character class.
-   * Parameter id is used in the encounter class to give each Character and monster
+   * Parameter a is used in the encounter class to give each Character and monster
    * a unique identifying integer as a key to the initiative table.
    */
-  public Character(int id) {
-    Random rnd = new Random();
-    int ranCharacter = rnd.nextInt(4);
-    switch (ranCharacter) {
-      default:
-        name = "James";
-        maxHealth = rnd.nextInt(5 + 13);
-        health = maxHealth;
-        armorClass = rnd.nextInt(5 + 13);
-        initiative = rnd.nextInt(20 + 1) + 2;
-        this.id = id;
-        break;
-      case 0:
-        name = "Sam";
-        maxHealth = rnd.nextInt(5 + 13);
-        health = maxHealth;
-        armorClass = rnd.nextInt(5 + 13);
-        initiative = rnd.nextInt(20 + 1) + 2;
-        this.id = id;
-        break;
-      case 1:
-        name = "John";
-        maxHealth = rnd.nextInt(5 + 13);
-        health = maxHealth;
-        armorClass = rnd.nextInt(5 + 13);
-        initiative = rnd.nextInt(20 + 1) + 2;
-        this.id = id;
-        break;
-      case 2:
-        name = "Lisa";
-        maxHealth = rnd.nextInt(5 + 13);
-        health = maxHealth;
-        armorClass = rnd.nextInt(5 + 13);
-        initiative = rnd.nextInt(20 + 1) + 2;
-        this.id = id;
-        break;
-      case 3:
-        name = "Jesus";
-        maxHealth = rnd.nextInt(5 + 13);
-        health = maxHealth;
-        armorClass = rnd.nextInt(5 + 13);
-        initiative = rnd.nextInt(20 + 1) + 2;
-        this.id = id;
-        break;
-    }
+  public Character(int a) {
+    id = a;
   }
+
+  /**
+   * Constructor method that takes a name as input.
+   */
 
   public Character(String playerName) {
     name = playerName;
@@ -124,7 +85,9 @@ public class Character {
    * @return the challengeRating of the Character.
    */
 
-  public double getChallengeRating(){ return challengeRating;}
+  public double getChallengeRating() {
+    return challengeRating;
+  }
 
   /**
    * accessor method for the Character's xp.
@@ -132,6 +95,7 @@ public class Character {
    * @return the xp of the Character.
    */
 
-  public int getXp() { return xp; }
-
+  public int getXp() {
+    return xp;
+  }
 }

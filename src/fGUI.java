@@ -42,7 +42,7 @@ public class fGUI {
    * Constructor for the GUI. Adds event listeners to all the buttons
    */
   public fGUI() {
-    /**
+    /*
      * Opens the encounter generator GUI
      */
     generateEncounterButton.addActionListener(new ActionListener() {

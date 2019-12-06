@@ -20,15 +20,7 @@ public class Monster extends Character {
     //int monType = rnd.nextInt(4);
     switch (id) {
       default:
-        name = "Kobold";
-        maxHealth = 5;
-        health = maxHealth;
-        armorClass = 12;
-        challengeRating = 1.0 / 8.0;
-        initiative = rnd.nextInt(20 + 1) + 2;
-        xp = 25;
-        this.id = id;
-        break;
+        throw new IllegalArgumentException("invalid Monster id");
       case 0:
         name = "Kobold";
         maxHealth = 5;

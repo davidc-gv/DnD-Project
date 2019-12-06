@@ -4,7 +4,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Scanner;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 /**
  * Dialog that serves as the GUI for rolling dice.
@@ -115,27 +121,25 @@ public class RollMenu extends JDialog {
    */
   private void onRoll() {
     // Values passed by user using diceCount and dieType
-    int dCount, dType;
+    int dCount;
+    int dType;
     // Creates new DiceRoll object
     DiceRoll dice_roll = new DiceRoll();
     // Attempts to fetch integer values from diceCount and dieType
     try {
       dCount = Integer.parseInt(diceCount.getText());
       dType = Integer.parseInt(dieType.getText());
-    }
-    // Displays error in rollResult and returns if non-integers are used
-    catch(Exception e){
+    } catch (Exception e) {
       rollResult.setText("Please only use integers greater than 1");
       return;
     }
     // Gets the sum of rolls as desired
     int resultingSum = dice_roll.customRoll(dCount,dType);
     // Checks if the roll returns an error (-1 is passed) and displays it in rollResult
-    if(resultingSum == -1){
+    if (resultingSum == -1) {
       rollResult.setText("Please only use integers greater than 1");
-    }
-    // Shows the resulting value in rollResult
-    else {
+      } else {
+      // Shows the resulting value in rollResult
       rollResult.setText("" + resultingSum);
     }
   }
@@ -150,7 +154,7 @@ public class RollMenu extends JDialog {
   /**
    * Main method. Initializes the menu and makes it visible.
    *
-   * @param args
+   * @param args main argument.
    */
   public static void main(String[] args) {
     RollMenu dialog = new RollMenu();

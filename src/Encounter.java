@@ -15,7 +15,6 @@ public class Encounter {
   /**
    * This will build an encounter which will have an array of Monsters,
    * Players, and an initiative tracker.
-   *
    * The methods are completely random
    *
    * @param numMon will hold how many randomly generated monsters will be included
@@ -63,13 +62,11 @@ public class Encounter {
 
 
   /**
-   * This is a different constructor that takes in the player names and initiatives
-   *
+   * This is a different constructor that takes in the player names and initiatives.
    * This will add players to the initiative tracker with their corresponding initiative values
    * This will also add monsters based on the method the user wishes to do so
    * The monsters can be added via their ID opr via their CR
    * Helper methods will handle this
-   *
    * The constructor will then sort the initiatives accordingly
    *
    * @param playerNames a list of player names
@@ -77,14 +74,14 @@ public class Encounter {
    * @param monsterID a list of ID's of monsters to add to the rotation
    * @param monsterCR a list of CR's of monsters to add to the rotation
    */
-  public Encounter(String [] playerNames, int [] init, int [] monsterID, double [] monsterCR){
+  public Encounter(String [] playerNames, int [] init, int [] monsterID, double [] monsterCR) {
 
     initiative = new ArrayList<>();
 
     players = new Player[playerNames.length];
 
     //adding the players
-    for(int i = 0; i < playerNames.length; i++){
+    for (int i = 0; i < playerNames.length; i++) {
       Player p = new Player(playerNames[i]);
       p.initiative = init[i];
       p.name = playerNames[i];
@@ -118,10 +115,8 @@ public class Encounter {
    * This method will sort initiative. It uses a sorting algorithm to
    * arrange all the items in the initiative array
    * in the correct order dependent on initiative
-   *
    * Since we changed initiative from a list to an arraylist we will convert in order to use the
    * same logic.
-   *
    * First we convert to a list and perform our logic, we then convert back to an arraylist
    *
    */
@@ -131,7 +126,7 @@ public class Encounter {
 
     Character [] init = new Character[initiative.size()];
 
-    for(int i = 0; i < initiative.size(); i++){
+    for (int i = 0; i < initiative.size(); i++) {
       init[i] = initiative.get(i);
     }
 
@@ -154,7 +149,7 @@ public class Encounter {
     //this adds all of the elements of init to x
     //Collections.addAll(x, init);
 
-    for(int i = init.length-1; i >= 0; i--){
+    for (int i = init.length - 1; i >= 0; i--) {
 
       x.add(init[i]);
 
@@ -169,18 +164,16 @@ public class Encounter {
 
   /**
    * This method will iterate and change the head of the initiative to the next person in line.
-   *
    * This gets messy but we convert from an arraylist to a list, and then back to an arraylist
-   *
    * We sort the list and then convert back. This makes it so our previous logic still holds.
    *
    *
    */
-  public void nextTurn(){
+  public void nextTurn() {
 
     Character [] init = new Character[initiative.size()];
 
-    for(int i = 0; i < initiative.size(); i++){
+    for (int i = 0; i < initiative.size(); i++) {
       init[i] = initiative.get(i);
     }
 
@@ -188,9 +181,9 @@ public class Encounter {
 
     Character temp = init[0];
 
-    for(int i = 1; i < init.length; i++){
+    for (int i = 1; i < init.length; i++) {
 
-      init[i-1] = init[i];
+      init[i - 1] = init[i];
 
     }
 
@@ -208,13 +201,13 @@ public class Encounter {
 
 
   /**
-   * The program will remove a player/monster from the initiative by taking in an index
+   * The program will remove a player/monster from the initiative by taking in an index.
    * There is no need resort since it will still be in order
    *
    * @param index This program will take in the index of the character we want to remove
    * @return The method will return the chracter removed in case we want to use it at a later point
    */
-  public Character removeChar(int index){
+  public Character removeChar(int index) {
 
     Character temp = initiative.get(index);
 
@@ -227,12 +220,11 @@ public class Encounter {
   /**
    * The method will take in a integer that will represent the monster the user wishes to add
    * We will then add that monster into the initiative.
-   *
    * We do not need to sort initiative
    *
    * @param ind is the index of the monster in the constructor for monsters
    */
-  public void addMonster(int ind){
+  public void addMonster(int ind) {
 
     Monster mon = new Monster(ind);
     initiative.add(mon);
@@ -240,31 +232,26 @@ public class Encounter {
   }
 
   /**
-   * The program will find a monster with the same CR as what was given
-   *
+   * The program will find a monster with the same CR as what was given.
    * If no such CR exists within our amount of monsters, it will return a random Monster
    *
    *
-   * @param ChallengeRating is the challenge rating of the monster we want to add
+   * @param challengeRating is the challenge rating of the monster we want to add
    */
-  public void addMonsterCR(double ChallengeRating){
+  public void addMonsterCR(double challengeRating) {
 
     DiceRoll d = new DiceRoll();
     Monster mon = new Monster(d.rollD4());
 
-    for(int i = 0; i <= 15; i++){
-
-      mon = new Monster(i);
-
-      if(mon.getChallengeRating() == ChallengeRating){
-        break;
-      }
-
+    if (challengeRating > 15 || challengeRating < 0) {
+      throw new
+          IllegalArgumentException("Challenge rating out of bounds, use CR of 0.125 through 15");
     }
-
-    initiative.add(mon);
-
-
+    int i = 0;
+    while ((mon.getChallengeRating() < (challengeRating - 1.1))
+        || (mon.getChallengeRating() > (challengeRating + 1.1))) {
+      mon = new Monster(i);
+      i++;
+    } initiative.add(mon);
   }
-
 }

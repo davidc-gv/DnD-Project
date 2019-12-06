@@ -16,24 +16,24 @@ public class DiceRoll {
   }
 
   /**
-   * Rolls a custom amount (1+) of custom dice (1+)
+   * Rolls a custom amount (1+) of custom dice (1+).
    *
    * @author Andrew Langley
-   * @param dNum Amount of dice to be rolled
-   * @param dType Type of die to roll (e.g. d20 or d10)
+   * @param num Amount of dice to be rolled
+   * @param type Type of die to roll (e.g. d20 or d10)
    * @return random integer between 1 and dType. -1 if invalid input
    */
-  public int customRoll(int dNum, int dType){
+  public int customRoll(int num, int type) {
     // Checks if both dNum and dType are greater than 0 and returns -1 if either are not
-    if(dNum < 1 || dType < 1){
+    if (num < 1 || type < 1) {
       return -1;
     }
     // Sum of rolls
     int rollSum = 0;
     // Rolls dNum times
-    for(int i = 0; i < dNum; ++i){
+    for (int i = 0; i < num; ++i) {
       // Adds roll to the sum
-      rollSum += roll.nextInt(dType) + 1;
+      rollSum += roll.nextInt(type) + 1;
     }
     return rollSum;
   }
