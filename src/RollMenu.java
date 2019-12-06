@@ -88,35 +88,36 @@ public class RollMenu extends JDialog {
         rollResult.setText("" + dice_roll.rollD20());
       }
     });
-   /* d10.addActionListener(new ActionListener() {
+    /* d10.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        rollResult.setText("" + dice_roll.rollD10());
+       rollResult.setText("" + dice_roll.rollD10());
       }
-    });
-    d12.addActionListener(new ActionListener() {
+     });
+     d12.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         rollResult.setText("" + dice_roll.rollD12()); // TYPO ************************
       }
-    });
-    d8.addActionListener(new ActionListener() {
+     });
+     d8.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         rollResult.setText("" + dice_roll.rollD8());
       }
-    });
-    d6.addActionListener(new ActionListener() {
+     });
+     d6.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         rollResult.setText("" + dice_roll.rollD6());
       }
-    });
-    d4.addActionListener(new ActionListener() {
+     });
+     d4.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         rollResult.setText("" + dice_roll.rollD4());
       }
-    });*/
+     });*/
   }
 
   /**
-   * Takes user data from diceCount and dieType to call the customRoll method of a DiceRoll object and
+   * Takes user data from diceCount and dieType to call the
+   * customRoll method of a DiceRoll object and
    * puts the resulting value in rollResult. Errors are displayed in rollResult
    */
   private void onRoll() {
@@ -134,11 +135,11 @@ public class RollMenu extends JDialog {
       return;
     }
     // Gets the sum of rolls as desired
-    int resultingSum = dice_roll.customRoll(dCount,dType);
+    int resultingSum = dice_roll.customRoll(dCount, dType);
     // Checks if the roll returns an error (-1 is passed) and displays it in rollResult
     if (resultingSum == -1) {
       rollResult.setText("Please only use integers greater than 1");
-      } else {
+    } else {
       // Shows the resulting value in rollResult
       rollResult.setText("" + resultingSum);
     }

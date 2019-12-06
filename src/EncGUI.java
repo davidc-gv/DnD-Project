@@ -188,7 +188,8 @@ public class EncGUI extends JDialog {
       @Override
       public void actionPerformed(ActionEvent e) {
         try {
-          if (Double.parseDouble(challengeRating.getText()) < 0.125 || Double.parseDouble(challengeRating.getText()) > 15) {
+          if (Double.parseDouble(challengeRating.getText()) < 0.125
+              || Double.parseDouble(challengeRating.getText()) > 15) {
             JOptionPane.showMessageDialog(null, "Please enter an amount between 0.125 and 15");
           } else {
             desiredCR = Double.parseDouble(challengeRating.getText());
@@ -211,7 +212,7 @@ public class EncGUI extends JDialog {
           enc.removeChar(index);
 
         } catch (Exception ex) {
-
+          throw new IllegalArgumentException("unable to perform action");
         }
       }
     });

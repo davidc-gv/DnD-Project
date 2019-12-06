@@ -1,6 +1,8 @@
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  * Class that tests Encounter, Monster, DiceRoll, and Player Classes.
@@ -8,7 +10,7 @@ import static org.junit.Assert.*;
  * @author Samuel Petrarca
  */
 
-public class dndTest {
+public class DndTest {
 
   /**
    * Tests the nextTurn() function of Encounter as well as the Characters in the order.

@@ -24,7 +24,7 @@ public class fGUI {
   /**
    * Main method. Initializes GUI and makes it visible
    *
-   * @param args
+   * @param args main args
    */
   public static void main(String[] args) {
     JFrame frame = new JFrame("fGUI");

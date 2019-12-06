@@ -252,6 +252,7 @@ public class Encounter {
         || (mon.getChallengeRating() > (challengeRating + 1.1))) {
       mon = new Monster(i);
       i++;
-    } initiative.add(mon);
+    }
+    initiative.add(mon);
   }
 }
