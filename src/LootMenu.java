@@ -33,11 +33,11 @@ public class LootMenu extends JDialog {
     enterButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         try {
-          if(Double.parseDouble(challengeRating.getText()) < 0.125 || Double.parseDouble(challengeRating.getText()) > 15){
-            JOptionPane.showMessageDialog(null, "Please enter an amount between 0.125 and 15");
+          if(Integer.parseInt(challengeRating.getText()) < 1 || Integer.parseInt(challengeRating.getText()) > 15){
+            JOptionPane.showMessageDialog(null, "Please enter an amount between 1 and 15");
           }
           else{
-            crDisplay.setText("CR: " + Double.parseDouble(challengeRating.getText()));
+            crDisplay.setText("CR:  " + Integer.parseInt(challengeRating.getText()));
           }
         } catch (Exception ex) {
           JOptionPane.showMessageDialog(null, "Please enter a valid challenge rating");
@@ -72,11 +72,11 @@ public class LootMenu extends JDialog {
 
     // call onCancel() on ESCAPE
     contentPane.registerKeyboardAction(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        onLeave();
-      }
-    }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
-        JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+                                         public void actionPerformed(ActionEvent e) {
+                                           onLeave();
+                                         }
+                                       }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+            JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
   }
 
   /**
@@ -84,9 +84,19 @@ public class LootMenu extends JDialog {
    */
   private void onGenerate() {
     Loot loot = new Loot();
-    generatedLoot.setText(loot.itemType() + " with " + loot.itemModifier());
-    int cr = Integer.parseInt(challengeRating.getText());
-    gold.setText("Gold: " + loot.goldAmount(cr));
+    try {
+      if(Integer.parseInt(challengeRating.getText()) < 1 || Integer.parseInt(challengeRating.getText()) > 15){
+        JOptionPane.showMessageDialog(null, "Please enter an amount between 1 and 15");
+      }
+      else{
+        crDisplay.setText("CR:  " + Integer.parseInt(challengeRating.getText()));
+        int cr = Integer.parseInt(challengeRating.getText());
+        generatedLoot.setText(loot.itemType(cr));
+        gold.setText("Gold: " + loot.goldAmount(cr));
+      }
+    } catch (Exception ex) {
+      JOptionPane.showMessageDialog(null, "Please enter a valid challenge rating");
+    }
   }
 
 
@@ -100,7 +110,7 @@ public class LootMenu extends JDialog {
   /**
    * Main method. Initializes the menu and makes it visible
    *
-   * @param args
+   * @param args main argument.
    */
   public static void main(String[] args) {
     LootMenu dialog = new LootMenu();
