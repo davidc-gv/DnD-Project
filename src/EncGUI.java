@@ -104,11 +104,11 @@ public class EncGUI extends JDialog {
     int[] initID = new int[initialMonsters.getIdList().size()];
     double[] initCR = new double[initialMonsters.getCrList().size()];
 
-    for (int i = 0; i < initialMonsters.getIdList().size() - 1; ++i) {
+    for (int i = 0; i < initialMonsters.getIdList().size(); ++i) {
       initID[i] = initialMonsters.getIdList().get(i);
     }
 
-    for (int j = 0; j < initialMonsters.getCrList().size() - 1; ++j) {
+    for (int j = 0; j < initialMonsters.getCrList().size(); ++j) {
       initCR[j] = initialMonsters.getCrList().get(j);
     }
 
