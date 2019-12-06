@@ -6,8 +6,8 @@ import java.awt.event.WindowEvent;
 import javax.swing.*;
 
 /**
- * Dialog that serves as the GUI for the loot generation system. Displays one generated
- * item for right now. Details to be expanded upon****
+ * Dialog that serves as the GUI for the loot generation system. Displays loot generated from 
+ * given challenge ratings
  *
  * @author Andrew Langley
  */
@@ -30,8 +30,10 @@ public class LootMenu extends JDialog {
     setModal(true);
     getRootPane().setDefaultButton(generateButton);
 
+    // Simply updates the challenge rating
     enterButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
+        // Ensures that the challenge rating is an integer between 1 and 100
         try {
           if(Integer.parseInt(challengeRating.getText()) < 1 || Integer.parseInt(challengeRating.getText()) > 100){
             JOptionPane.showMessageDialog(null, "Please enter an amount between 1 and 100");
@@ -47,6 +49,7 @@ public class LootMenu extends JDialog {
       }
     });
 
+    // Generates the loot 
     generateButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         onGenerate();
@@ -84,6 +87,7 @@ public class LootMenu extends JDialog {
    */
   private void onGenerate() {
     Loot loot = new Loot();
+    // Ensures that the challenge rating is an integer between 1 and 100
     try {
       if(Integer.parseInt(challengeRating.getText()) < 1 || Integer.parseInt(challengeRating.getText()) > 100){
         JOptionPane.showMessageDialog(null, "Please enter an amount between 1 and 100");
